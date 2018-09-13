@@ -254,6 +254,9 @@ nav a {
   height: 150px;
 }
 
+.client-head {
+  background-image: linear-gradient(#2181bd,#fff, #fff);
+}
 .client-img img {
   height: 100%;
   width: auto;
