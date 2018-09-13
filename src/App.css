@@ -123,6 +123,7 @@ nav a {
   margin-bottom: 40px; 
   overflow-x: hidden;
   justify-content: center;
+  z-index: 2;
 }
 
 .brain-left, .brain-right {
@@ -247,7 +248,7 @@ nav a {
   box-shadow: 0px 17px 17px -15px;
   padding: 20px;
   background-color: #fff;
-  z-index: 2;
+  z-index: 1;
 }
 .client-img img {
   height: 100%;
