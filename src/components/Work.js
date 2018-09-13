@@ -102,8 +102,8 @@ export class Work extends Component {
                 </div>
 
                 <Switch>
-                    <Route path={`${path}`} exact render={(props) => (<InfoSection {...props} image={brain_right} title="humans" />)} />
-                    <Route path={`${path}/tech`} render={(props) => (<InfoSection {...props} image={brain_left} title="tech" />)} />
+                    <Route path={`${path}`} exact render={(props) => (<InfoSection {...props} image={brain_right} title="Humans" />)} />
+                    <Route path={`${path}/tech`} render={(props) => (<InfoSection {...props} image={brain_left} title="Tech" />)} />
                     <Route path={`${path}/clients`} component={Clients} />
                 </Switch>
                 {/* <img src={brain_right} /> */}
