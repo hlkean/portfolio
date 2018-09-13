@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {TweenMax, Power2, TimelineMax} from "gsap/TweenMax";
-// import { Client } from "./Client";
-// import patron from '../images/patron.png';
-// import usaa from '../images/usaa.png';
-// import southwest from '../images/southwest.png';
+import { Route, Link, Switch } from "react-router-dom";
+import { InfoSection } from "./InfoSection";
+import { Clients } from "./Clients";
 import brain_left from '../images/brain_left.svg';
 import brain_right from '../images/brain_right.svg';
 
@@ -64,8 +63,10 @@ export class Work extends Component {
     };
 
     render () {
+        const { path } = this.props.match;
         return (
             <div className="page-content">
+                
                 <h1>Work</h1>
                 <div class="hero">
                     <img class="brain-left" src={brain_left} />
@@ -87,27 +88,31 @@ export class Work extends Component {
                             </p>
                             <ul className="tabs" ref={this.subNavBlock}>
                                 <li>
-                                    <a href="#">People Skills</a>
+                                <Link to={`${path}`}>People Skills</Link>
                                 </li>
                                 <li>
-                                    <a href="#">Tech Skills</a>
+                                <Link to={`${path}/tech`}>Tech Skills</Link>
                                 </li>
                                 <li>
-                                    <a href="#">Clients</a>
+                                    <Link to={`${path}/clients`}>Clients</Link>
                                 </li>
                             </ul>
                         </span>
                     </div>
                 </div>
 
-                
+                <Switch>
+                    <Route path={`${path}`} exact render={(props) => (<InfoSection {...props} image={brain_right} title="humans" />)} />
+                    <Route path={`${path}/tech`} render={(props) => (<InfoSection {...props} image={brain_left} title="tech" />)} />
+                    <Route path={`${path}/clients`} component={Clients} />
+                </Switch>
                 {/* <img src={brain_right} /> */}
                 {/* <img src={brain_left} /> */}
                 
                 {/* <p>Throughout my career, I have had the opportunity to work on a number of different projects - for amazing clients and as part of a product team.</p>
                 <p>I have made it my mission to learn from each of these opportunities so that I am smarter and more capable when the next one arises.</p>
                 <p>Some of the skills I have picked up along the way include:</p> */}
-                <div className="psych bg-section">
+                {/* <div className="psych bg-section">
                     <img src={brain_right} />
                 Research methods, data analysis, practical applications of data- Psych major, sociology minor
 
@@ -245,7 +250,7 @@ export class Work extends Component {
                                 </ul>
                         </ul>
                     </div>
-                </div>
+                </div> */}
 
                 {/* <div id="clients">
                     <Client clientName="Development" img={patron} alt="Patrón Spirits Company" clientCopy={
@@ -269,13 +274,6 @@ export class Work extends Component {
         </ul>} />
                     <Client clientName="Creative Tools" img={usaa} alt="USAA" clientCopy="This is a sentence about how great USAA is." />
                     <Client clientName="Personal Experience" img={southwest} alt="Southwest Airlines" clientCopy="This is a sentence about how great Southwest Airlines is." />
-                </div> */}
-
-
-                {/* <div id="clients">
-                    <Client clientName="Patrón Spirits Company" img={patron} alt="Patrón Spirits Company" clientCopy="This is a sentence about how great Patrón is." />
-                    <Client clientName="USAA" img={usaa} alt="USAA" clientCopy="This is a sentence about how great USAA is." />
-                    <Client clientName="Southwest Airlines" img={southwest} alt="Southwest Airlines" clientCopy="This is a sentence about how great Southwest Airlines is." />
                 </div> */}
             </div>
         );
