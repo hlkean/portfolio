@@ -255,7 +255,7 @@ nav a {
 }
 
 .client-head {
-  background-image: linear-gradient(#2181bd,#fff, #fff);
+  background-image: linear-gradient(#2181bd, #2181bd, #002d56);
 }
 .client-img img {
   height: 100%;
@@ -263,6 +263,7 @@ nav a {
 }
 .client-head h2 {
   font-size: 50px;
+  color: white;
   margin: 0;
   font-family: 'Bree Serif', serif;
 }
