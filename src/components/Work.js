@@ -59,7 +59,6 @@ export class Work extends Component {
         const { path } = this.props.match;
         return (
             <div className="page-content">  
-                <h1>Work</h1>
                 <div class="hero">
                     <img class="brain-left" src={brain_left} />
                     <img class="brain-right" src={brain_right} />
@@ -80,13 +79,13 @@ export class Work extends Component {
                             </p>
                             <ul className="tabs" ref={this.subNavBlock}>
                                 <li>
-                                <Link to={`${path}`}>People Skills</Link>
+                                <Link to={`${path}`} className="link -dark">People Skills</Link>
                                 </li>
                                 <li>
-                                <Link to={`${path}/tech`}>Tech Skills</Link>
+                                <Link to={`${path}/tech`} className="link -dark">Tech Skills</Link>
                                 </li>
                                 <li>
-                                    <Link to={`${path}/clients`}>Clients</Link>
+                                    <Link to={`${path}/clients`} className="link -dark">Clients</Link>
                                 </li>
                             </ul>
                         </span>

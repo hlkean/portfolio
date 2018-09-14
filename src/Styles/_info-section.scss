@@ -18,17 +18,19 @@
 }
 
 .info-head h2 {
-    font-size: 50px;
-    color: $color-secondary;
+    font-size: 25px;
     margin: 0;
     font-family: $font-primary;
+    color: $color-secondary;    
 }
 
 .info-body {
-    box-shadow: 0 8px 12px -7px #757575;
+    box-shadow: 0px 10px 20px -7px #000;
     margin-top: -15px;
     padding: 10px;
     flex-basis: 100%;
+    color: $color-primary;
+    text-align: left;
     background-color: $color-white;
     /* border: 3px solid #0971AF; */
 }

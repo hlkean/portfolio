@@ -46,7 +46,7 @@ export class Navbar extends Component {
                 <ul className="-no-list">
                     <li className="-no-list">
                         {/* <span onClick={this.transition}>Work</span> */}
-                        <a href="/work" onClick={this.transition} >Work</a>                        
+                        <a href="/work" className="link" onClick={this.transition} >Work</a>                        
                         {/* <ul className="hide">
                             <li className="-no-list"><img src="#" alt="Patrón Spirits Company" /></li>
                             <li className="-no-list"><a href="#"><img src="#" alt="USAA" /></a></li>
@@ -60,7 +60,7 @@ export class Navbar extends Component {
                     </li>
                     }
                     <li className="-no-list">
-                        <a href="#">Contact</a>
+                        <a href="#" className="link" >Contact</a>
                     </li>
                 </ul>
             </nav>
