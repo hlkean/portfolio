@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {TweenMax, Power2, TimelineMax} from "gsap/TweenMax";
 import { Link } from "react-router-dom";
 import { InfoSection } from "./InfoSection";
-import { Clients } from "./Clients";
 import brain_left from '../images/brain_left.svg';
 import brain_right from '../images/brain_right.svg';
 
@@ -42,12 +41,6 @@ export class Work extends Component {
                 .to(".brain-left", 1, {css: {right: '70%'}, ease:Power2.easeIn}, 1.5)
                 .to(".brain-right", 1, {css: {left: '70%'}, ease:Power2.easeIn}, 1.5)
                 .from(".brain-content", 1, {autoAlpha:0, y: 100}, 1.5);
-
-            
-        // window.setTimeout(function() {
-        //     document.getElementsByClassName('brain-insides')[0]
-        //     console.log(document.getElementsByClassName('brain-content')[0]);
-        // }, 1000);
     };
     handleScroll = () => {
         if(window.scrollY + 75 > ((this.subNav.current.clientHeight + this.sticky) - (this.subNavBlock.current.clientHeight + 40) - 75)) {
@@ -65,8 +58,7 @@ export class Work extends Component {
     render () {
         const { path } = this.props.match;
         return (
-            <div className="page-content">
-                
+            <div className="page-content">  
                 <h1>Work</h1>
                 <div class="hero">
                     <img class="brain-left" src={brain_left} />
@@ -101,181 +93,6 @@ export class Work extends Component {
                     </div>
                 </div>
                 <InfoSection path={path} />
-
-                {/* <Switch>
-                    <Route path={`${path}`} exact render={(props) => (<InfoSection {...props} image={brain_right} title="Humans" />)} />
-                    <Route path={`${path}/tech`} render={(props) => (<InfoSection {...props} image={brain_left} title="Tech" />)} />
-                    <Route path={`${path}/clients`} component={Clients} />
-                </Switch> */}
-                {/* <img src={brain_right} /> */}
-                {/* <img src={brain_left} /> */}
-                
-                {/* <p>Throughout my career, I have had the opportunity to work on a number of different projects - for amazing clients and as part of a product team.</p>
-                <p>I have made it my mission to learn from each of these opportunities so that I am smarter and more capable when the next one arises.</p>
-                <p>Some of the skills I have picked up along the way include:</p> */}
-                {/* <div className="psych bg-section">
-                    <img src={brain_right} />
-                Research methods, data analysis, practical applications of data- Psych major, sociology minor
-
-                Conflict resolution, conflict de-escalation - northern state prison
-
-                Customer service - handy man business
-
-                Leadership, importance of keeping a positive attitude
-
-
-
-
-
-
-                    <p>Throughout my career, I have had the opportunity to work on a number of different projects - for amazing clients and as part of a product team.</p>
-                    <p>I have made it my mission to learn from each of these opportunities so that I am smarter and more capable when the next one arises.</p>
-                    <p>Some of the skills I have picked up along the way include:</p>
-                    <div className="skill-list">
-                        <p data-open="dev" onClick={this.toggleMenu}>Web Development</p>
-                        <ul className="menu" data-menu="dev">
-                            <li>HTML</li>
-                            <li>CSS/SCSS</li>
-                            <li>Javascript
-                                <ul>
-                                    <li>ES6</li>
-                                    <li>jQuery</li>
-                                    <li>Vue.js</li>
-                                    <li>React</li>
-                                    <li>Ember</li>
-                                    <li>Node.js</li>
-                                </ul>
-                            </li>
-                            <li>PHP</li>
-                            <li>MySQL</li>
-                            <li>JSP</li>
-                            <li>Firebase</li>
-                        </ul>
-                        <p>Creative Tools</p>
-                        <ul>
-                            <li>Adobe Creative Cloud
-                                <ul>
-                                    <li>Photoshop</li>
-                                    <li>Illustrator</li>
-                                    <li>After Effects</li>
-                                </ul>
-                            </li>
-                            <li>Sketch</li>
-                        </ul>
-                        <p>Office Tools</p>
-                        <ul>
-                            <li>G Suite
-                                <ul>
-                                    <li>Google Sheets</li>
-                                    <li>Google Docs</li>
-                                    <li>Google Forms</li>
-                                    <li>Google Slides</li>
-                                </ul>
-                            </li>
-                            <li>Microsoft Office</li>
-                                <ul>
-                                    <li>Word</li>
-                                    <li>Powerpoint</li>
-                                    <li>Excel</li>
-                                </ul>
-                        </ul>
-                    </div>
-                </div>
-                <div className="tech bg-section">
-                    Masters degree in Interactive Media
-
-                    Photoshop, Illustrator, AfterEffects
-
-                    Pitchwork, product roadmapping - Student Startup Madness, other competitions
-
-                    HTML, CSS, JS, JSTL
-                    JIRA
-                    Presenting to clients, scoping our timelines/work estimtes working as part of a creative team, enterprise level clients - Razorfish
-
-                    PHP (CodeIgniter, Laravel), MySQL Vue.JS, Ember 
-                    Working as part of a product team- SportsRecruits
-
-                    React, Firebase, Node.js, GSAP, Sketch - Personal projects
-
-
-
-                    <p>Throughout my career, I have had the opportunity to work on a number of different projects - for amazing clients and as part of a product team.</p>
-                    <p>I have made it my mission to learn from each of these opportunities so that I am smarter and more capable when the next one arises.</p>
-                    <p>Some of the skills I have picked up along the way include:</p>
-                    <div className="skill-list">
-                        <p data-open="dev" onClick={this.toggleMenu}>Web Development</p>
-                        <ul>
-                            <li>HTML</li>
-                            <li>CSS/SCSS</li>
-                            <li>Javascript
-                                <ul>
-                                    <li>ES6</li>
-                                    <li>jQuery</li>
-                                    <li>Vue.js</li>
-                                    <li>React</li>
-                                    <li>Ember</li>
-                                    <li>Node.js</li>
-                                </ul>
-                            </li>
-                            <li>PHP</li>
-                            <li>MySQL</li>
-                            <li>JSP</li>
-                            <li>Firebase</li>
-                        </ul>
-                        <p>Creative Tools</p>
-                        <ul>
-                            <li>Adobe Creative Cloud
-                                <ul>
-                                    <li>Photoshop</li>
-                                    <li>Illustrator</li>
-                                    <li>After Effects</li>
-                                </ul>
-                            </li>
-                            <li>Sketch</li>
-                        </ul>
-                        <p>Office Tools</p>
-                        <ul>
-                            <li>G Suite
-                                <ul>
-                                    <li>Google Sheets</li>
-                                    <li>Google Docs</li>
-                                    <li>Google Forms</li>
-                                    <li>Google Slides</li>
-                                </ul>
-                            </li>
-                            <li>Microsoft Office</li>
-                                <ul>
-                                    <li>Word</li>
-                                    <li>Powerpoint</li>
-                                    <li>Excel</li>
-                                </ul>
-                        </ul>
-                    </div>
-                </div> */}
-
-                {/* <div id="clients">
-                    <Client clientName="Development" img={patron} alt="Patrón Spirits Company" clientCopy={
-                    <ul className="menu" data-menu="dev">
-                        <li>HTML</li>
-                        <li>CSS/SCSS</li>
-                        <li>Javascript
-                            <ul>
-                                <li>ES6</li>
-                                <li>jQuery</li>
-                                <li>Vue.js</li>
-                                <li>React</li>
-                                <li>Ember</li>
-                                <li>Node.js</li>
-                            </ul>
-                        </li>
-                        <li>PHP</li>
-                        <li>MySQL</li>
-                        <li>JSP</li>
-                        <li>Firebase</li>
-        </ul>} />
-                    <Client clientName="Creative Tools" img={usaa} alt="USAA" clientCopy="This is a sentence about how great USAA is." />
-                    <Client clientName="Personal Experience" img={southwest} alt="Southwest Airlines" clientCopy="This is a sentence about how great Southwest Airlines is." />
-                </div> */}
             </div>
         );
     }

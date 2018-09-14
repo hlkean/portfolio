@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-// import data from '../data.json';
 
 export class InfoBlock extends Component {
     constructor (props) {
         super(props);
-        // this.trackAnimation = this.trackAnimation.bind(this);
         this.state = {
             animated: false
         };
 
     };
     componentDidMount = () => { 
-        // this.transition = this.transition.bind(this);
         document.getElementById('nav').classList.remove('init');
         document.getElementById('nav').classList.add('-top');
 
@@ -34,11 +31,9 @@ export class InfoBlock extends Component {
                     }
                 </div>
                 <div className="info-body">
-                    
-                    {/* <p> */}
-                    {this.props.body}
-                    
-                    {/* </p> */}
+                    <p>
+                        {this.props.body}
+                    </p>
                 </div>
             </div>
         );
