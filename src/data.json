@@ -1,0 +1,42 @@
+{
+    "clients" : [{
+        "title" : "Patrón Spirits Company",
+        "body" : "This is a sentence about Patrón",
+        "img": "/images/patron.png",
+        "link": false
+    },
+    {
+        "title" : "Southwest Airlines",
+        "body": "This is a sentence about Southwest",
+        "img": "/images/southwest.png",
+        "link": false
+    },
+    {
+        "title": "USAA",
+        "body": "This is a sentence about USAA",
+        "img": "/images/usaa.png",
+        "link": false
+    }],
+    "tech" : [{
+        "title" : "Dev work",
+        "body": "This is a sentence about Dev work",
+        "img" : false,
+        "link": "https://www.google.com"
+
+    }],
+    "humans" : [{
+        "title": "Leadership",
+        "body": "This is a sentence about leadership",
+        "img" : false,
+        "link": false
+
+    }, 
+    {
+        "title": "Conflict Management",
+        "body": "This is a sentence about conflict management",
+        "img": false,
+        "link": false
+    }
+]
+
+}

@@ -1,11 +1,5 @@
 @import 'Styles/vars';
 
-@font-face {
-  font-family: archivo;
-  src: url('fonts/ArchivoBlack-Regular.ttf');
-}
-
-
 body {
   height: 100vh;
   width: 100vw;
@@ -221,14 +215,14 @@ nav a {
   bottom: 56px;
   z-index: -1;
 }
-#clients {
+.wrap-wrapper {
   display: flex;
   width: 100%;
   justify-content: space-between;
   flex-wrap:wrap;
   flex: 0 1 auto;
 }
-#client {
+.wrap-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -243,7 +237,7 @@ nav a {
   margin: 0 0 0 20px;
 } */
 
-.client-img, .client-head {
+.info-head {
   flex: 0 1 auto;
   text-align: center;
   box-shadow: 0px 17px 17px -15px;
@@ -253,21 +247,21 @@ nav a {
   border-radius: 200px;
 }
 
-.client-img {
+.info-head.-img {
   height: 100px;
 }
 
-.client-img img {
+.info-head img {
   height: 100%;
   width: auto;
 }
-.client-head h2 {
+.info-head h2 {
   font-size: 50px;
   color: $color-secondary;
   margin: 0;
   font-family: $font-primary;
 }
-.client-text {
+.info-body {
   box-shadow: 0 8px 12px -7px #757575; 
   margin-top: -15px;
   padding: 10px;
@@ -275,7 +269,7 @@ nav a {
   background-color: $color-white;
   /* border: 3px solid #0971AF; */
 }
-.client-text h2 {
+.info-body h2 {
   text-align: center;
 }
 #loader {

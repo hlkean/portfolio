@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {TweenMax, Power2, TimelineMax} from "gsap/TweenMax";
-import { Route, Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { InfoSection } from "./InfoSection";
 import { Clients } from "./Clients";
 import brain_left from '../images/brain_left.svg';
@@ -100,12 +100,13 @@ export class Work extends Component {
                         </span>
                     </div>
                 </div>
+                <InfoSection path={path} />
 
-                <Switch>
+                {/* <Switch>
                     <Route path={`${path}`} exact render={(props) => (<InfoSection {...props} image={brain_right} title="Humans" />)} />
                     <Route path={`${path}/tech`} render={(props) => (<InfoSection {...props} image={brain_left} title="Tech" />)} />
                     <Route path={`${path}/clients`} component={Clients} />
-                </Switch>
+                </Switch> */}
                 {/* <img src={brain_right} /> */}
                 {/* <img src={brain_left} /> */}
                 
