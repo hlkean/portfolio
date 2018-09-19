@@ -1,9 +1,9 @@
 {
     "clients" : [{
         "title" : "Patrón Spirits Company",
-        "body" : "This is a sentence about Patrón",
+        "body" : "Tequila and tech may not be an obvious match, but our team set out to change that. In addition to regular site upkeep, we developed a number of digital experiences aimed at engaging and educating tequila drinkers. Cocktail Lab allows users to create profiles to get personalized cocktail recommendations and recipes. ",
         "img": "/images/patron.png",
-        "link": false
+        "link": "https://www.patrontequila.com"
     },
     {
         "title" : "Southwest Airlines",
@@ -18,12 +18,31 @@
         "link": false
     }],
     "tech" : [{
-        "title" : "Dev work",
-        "body": "This is a sentence about Dev work",
-        "img" : false,
-        "link": "https://www.google.com"
+            "title" : "HTML, CSS, JS",
+            "body": "This is a sentence about Dev work",
+            "img" : false,
+            "link": "https://www.google.com"
+        },
+        {
+            "title": "Frameworks",
+            "body": "This is a sentence about Dev work",
+            "img": false,
+            "link": "https://www.google.com"
+        },
+        {
+            "title": "PHP",
+            "body": "This is a sentence about Dev work",
+            "img": false,
+            "link": "https://www.google.com"
+        },
+        {
+            "title": "JSTL/JSP",
+            "body": "This is a sentence about Dev work",
+            "img": false,
+            "link": "https://www.google.com"
+        }
 
-    }],
+    ],
     "humans" : [{
         "title": "Leadership",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -32,13 +51,13 @@
 
     }, 
     {
-        "title": "Conflict Management",
+        "title": "Team player",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "img": false,
         "link": false
     },
     {
-        "title": "Leadership",
+        "title": "Listening",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "img": false,
         "link": false

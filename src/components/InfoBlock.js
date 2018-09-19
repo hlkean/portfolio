@@ -23,14 +23,13 @@ export class InfoBlock extends Component {
         return (
             <div className="wrap-item">   
                 <div className={classList}>
-                    {isImage ? (
+                    {this.props.image &&
                         <img src={`${window.location.origin}${this.props.image}`} alt={this.props.title}/>
-                        ) : (
-                            <h2>{this.props.title}</h2>
-                        )
                     }
                 </div>
                 <div className="info-body">
+                    <h2>{this.props.title}</h2>
+                    <hr/>
                     <p>
                         {this.props.body}
                     </p>

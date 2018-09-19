@@ -8,8 +8,13 @@
     border-radius: 200px;
 }
 
-.info-head.-img {
-    height: 100px;
+// .info-head.-img {
+//     height: 100px;
+// }
+
+.info-head {
+    height: 60px;
+    width: 60px;
 }
 
 .info-head img {
@@ -17,17 +22,11 @@
     width: auto;
 }
 
-.info-head h2 {
-    font-size: 25px;
-    margin: 0;
-    font-family: $font-primary;
-    color: $color-secondary;    
-}
-
 .info-body {
     box-shadow: 0px 10px 20px -7px #000;
-    margin-top: -15px;
+    margin-top: -45px;
     padding: 10px;
+    padding-top: 55px;
     flex-basis: 100%;
     color: $color-primary;
     text-align: left;
@@ -37,4 +36,16 @@
 
 .info-body h2 {
     text-align: center;
+    font-size: 25px;
+    margin: 0;
+    font-family: $font-primary;
+    color: $color-secondary;
+}
+
+.info-body hr {
+    width: 50%;
+    height: 3px;
+    background-color: $color-secondary;
+    border: none;
+    margin: 16px auto 0;
 }
