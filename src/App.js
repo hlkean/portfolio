@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './App.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRoute, faServer, faDesktop } from '@fortawesome/free-solid-svg-icons';
 
 import { Navbar } from "./components/Navbar";
 import { Work } from "./components/Work";
 import { Intro } from "./components/Intro";
 import { Nope } from "./components/Nope";
 
-
+library.add(faRoute);
+library.add(faServer);
+library.add(faDesktop);
 class App extends Component {
   
   

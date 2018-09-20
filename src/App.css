@@ -42,7 +42,10 @@
   padding: 20px;
   background-color: #fff;
   z-index: 1;
-  border-radius: 200px; }
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .info-head {
   height: 60px;
@@ -76,6 +79,12 @@
   background-color: #2181bd;
   border: none;
   margin: 16px auto 0; }
+
+.svg-inline--fa.primary path {
+  fill: #2181bd; }
+
+.svg-inline--fa.secondary path {
+  fill: #2181bd; }
 
 body {
   height: 100vh;

@@ -1,0 +1,12 @@
+.svg-inline--fa {
+  &.primary {
+    path {
+      fill: $color-secondary;
+    }
+  } 
+  &.secondary {
+    path {
+      fill: $color-secondary;
+    }
+  }
+}
