@@ -2,19 +2,19 @@
     "clients" : [{
         "title" : "Patrón Spirits Company",
         "body" : "Tequila and tech may not be an obvious match, but our team set out to change that. In addition to regular site upkeep, we developed a number of digital experiences aimed at engaging and educating tequila drinkers. Cocktail Lab allows users to create profiles to get personalized cocktail recommendations and recipes. ",
-        "img": "/images/patron.png",
+        "img": "/images/patron-logo.png",
         "link": "https://www.patrontequila.com"
     },
     {
         "title" : "Southwest Airlines",
         "body": "This is a sentence about Southwest",
-        "img": "/images/southwest.png",
+        "img": "/images/southwest-logo.png",
         "link": false
     },
     {
         "title": "USAA",
         "body": "This is a sentence about USAA",
-        "img": "/images/usaa.png",
+        "img": "/images/usaa-logo.png",
         "link": false
     }],
     "tech" : [{
