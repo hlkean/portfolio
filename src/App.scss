@@ -148,6 +148,7 @@ nav a {
   background-color: $color-secondary;
   text-align: center;
   padding-top:90px;
+  background-image: linear-gradient($color-primary,  $color-primary, $color-secondary);
 }
 
 .test-container {
