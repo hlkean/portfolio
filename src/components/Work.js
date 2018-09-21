@@ -79,13 +79,19 @@ export class Work extends Component {
                             </p>
                             <ul className="tabs" ref={this.subNavBlock}>
                                 <li>
-                                <Link to={`${path}`} className="link -dark">People Skills</Link>
+                                    <span>
+                                        <Link to={`${path}`} className="link -dark">People Skills</Link>
+                                    </span>
                                 </li>
                                 <li>
-                                <Link to={`${path}/tech`} className="link -dark">Tech Skills</Link>
+                                    <span>
+                                        <Link to={`${path}/tech`} className="link -dark">Tech Skills</Link>
+                                    </span>
                                 </li>
                                 <li>
-                                    <Link to={`${path}/clients`} className="link -dark">Clients</Link>
+                                    <span>
+                                        <Link to={`${path}/clients`} className="link -dark">Clients</Link>
+                                    </span>
                                 </li>
                             </ul>
                         </span>
