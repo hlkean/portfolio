@@ -29,22 +29,22 @@
             "body": "This is a sentence about Dev work",
             "img": false,
             "link": "https://www.google.com",
-            "icon": "server"
+            "icon": "object-group"
             
         },
         {
-            "title": "PHP",
-            "body": "This is a sentence about Dev work",
+            "title": "Backend",
+            "body": "PHP, JSP",
             "img": false,
             "link": "https://www.google.com",
             "icon": "server"
         },
         {
-            "title": "JSTL/JSP",
+            "title": "Creative Tools",
             "body": "This is a sentence about Dev work",
             "img": false,
             "link": "https://www.google.com",
-            "icon": "server"
+            "icon": "palette"
         }
 
     ],
@@ -61,14 +61,14 @@
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "img": false,
         "link": false,
-        "icon": "route"
+        "icon": "people-carry"
     },
     {
-        "title": "Listening",
+        "title": "Problem Solving",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "img": false,
         "link": false,
-        "icon": "route"
+        "icon": "cogs"
 
     },
     {
@@ -76,7 +76,7 @@
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "img": false,
         "link": false,
-        "icon": "route"
+        "icon": "handshake"
     }
 ]
 
