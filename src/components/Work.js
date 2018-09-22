@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {TweenMax, Power2, TimelineMax} from "gsap/TweenMax";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { InfoSection } from "./InfoSection";
 import brain_left from '../images/brain_left.svg';
 import brain_right from '../images/brain_right.svg';
@@ -25,10 +25,10 @@ export class Work extends Component {
         
         document.getElementById('nav').classList.remove('init');
         document.getElementById('nav').classList.add('-top');
-        let contentWidth = '50%';
-        if(window.innerWidth < 768) {
-            contentWidth = '100%';
-        }
+        let contentWidth = '90%';
+        // if(window.innerWidth < 768) {
+        //     contentWidth = '100%';
+        // }
         
         let tl = new TimelineMax({repeat:0, delay:3});
             tl    
@@ -36,8 +36,8 @@ export class Work extends Component {
                 .set(".brain-content", {display:"block"})
                 .set(".brain-insides", {height:'auto'})
                 .from(".brain-insides",1,{height:0,immediateRender:false})
-                .to(".brain-left", 1.5, {css: {right: '78%'}, ease:Power2.easeInOut}, 0)
-                .to(".brain-right", 1.5, {css: {left: '78%'}, ease:Power2.easeInOut}, 0)
+                .to(".brain-left", 1.5, {css: {right: '75%'}, ease:Power2.easeInOut}, 0)
+                .to(".brain-right", 1.5, {css: {left: '75%'}, ease:Power2.easeInOut}, 0)
                 .to(".brain-left", 1, {css: {right: '70%'}, ease:Power2.easeIn}, 1.5)
                 .to(".brain-right", 1, {css: {left: '70%'}, ease:Power2.easeIn}, 1.5)
                 .from(".brain-content", 1, {autoAlpha:0, y: 100}, 1.5);
@@ -80,17 +80,17 @@ export class Work extends Component {
                             <ul className="tabs" ref={this.subNavBlock}>
                                 <li>
                                     <span>
-                                        <Link to={`${path}`} className="link -dark">People Skills</Link>
+                                        <NavLink exact to={`${path}`} className="link -dark" activeClassName="-active">People Skills</NavLink>
                                     </span>
                                 </li>
                                 <li>
                                     <span>
-                                        <Link to={`${path}/tech`} className="link -dark">Tech Skills</Link>
+                                        <NavLink to={`${path}/tech`} className="link -dark" activeClassName="-active">Tech Skills</NavLink>
                                     </span>
                                 </li>
                                 <li>
                                     <span>
-                                        <Link to={`${path}/clients`} className="link -dark">Clients</Link>
+                                        <NavLink to={`${path}/clients`} className="link -dark" activeClassName="-active">Clients</NavLink>
                                     </span>
                                 </li>
                             </ul>
