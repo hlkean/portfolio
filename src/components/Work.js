@@ -50,6 +50,9 @@ export class Work extends Component {
             this.subNav.current.style.position = 'initial';
         };
     };
+    scrollToContent = () => {
+
+    };
 
     componentWillUnmount = () => {
         window.removeEventListener('scroll', this.handleScroll);
@@ -64,8 +67,11 @@ export class Work extends Component {
                     <img class="brain-right" src={brain_right} />
                     <div className="brain-insides" ref={this.subNav}>
                         <span className="brain-content">
-                            <h2>Every experience is an opportunity to learn...</h2>
-                            <p>
+                            <h2>About Me</h2>
+                            <p>I’m an energetic, passionate, and fun loving web engineer. I love finding simple solutions to difficult problems and learning new things in the process.</p>
+                            <p>With an education in psychology and interactive media, and experience working with a variety of populations and people - from maximum security inmates to children to enterprise level clients - I’ve learned to listen, interpret, analyze, and execute.</p>
+                            <p>Below are a few of the skills I’ve gained over the years working as part of a product team as well as a lean creative team and some of the clients I’ve had pleasure to work with.</p>
+                            {/* <p>
                                 I believe that every life experience is an opportunity to learn and grow. I've been fortunate enough to have a wide variety of life and working experiences that have helped me to assemble a tool kit to handle almost any situation life (or work) has thrown at me.
                             </p>
                             <p>
@@ -76,7 +82,7 @@ export class Work extends Component {
                             </p>
                             <p>
                                 Working with:
-                            </p>
+                            </p> */}
                             <ul className="tabs" ref={this.subNavBlock}>
                                 <li>
                                     <span>

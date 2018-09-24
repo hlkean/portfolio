@@ -206,7 +206,8 @@ nav a {
   width: 100%;
   padding: 0;
   margin-top: 20px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  align-items: center; }
 
 .tabs li {
   flex: 1; }

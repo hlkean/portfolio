@@ -4,19 +4,19 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRoute, faServer, faDesktop, faPeopleCarry, faCogs, faHandshake, faObjectGroup, faPalette } from '@fortawesome/free-solid-svg-icons';
+import { faServer, faDesktop, faPeopleCarry, faHandshake, faObjectGroup, faPalette, faUserTie, faChartBar } from '@fortawesome/free-solid-svg-icons';
 
 import { Navbar } from "./components/Navbar";
 import { Work } from "./components/Work";
 import { Intro } from "./components/Intro";
 import { Nope } from "./components/Nope";
 
-library.add(faRoute);
+library.add(faChartBar);
 library.add(faServer);
 library.add(faDesktop);
 library.add(faObjectGroup);
 library.add(faPalette);
-library.add(faCogs);
+library.add(faUserTie);
 library.add(faHandshake);
 library.add(faPeopleCarry);
 

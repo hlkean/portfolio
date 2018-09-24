@@ -20,7 +20,7 @@ export class InfoSection extends Component {
                 )}/>
                 <Route path={`${this.props.path}/clients`}  render={(props) => (
                     data.clients.map(function (client, index) {
-                        return <InfoBlock {...props} key={index} image={client.img} title={client.title} body={client.body} link={client.link}/>
+                        return <InfoBlock {...props} key={index} image={client.img} title={client.title} body={client.body} links={client.links}/>
                     })
                 )} />
             </Switch>

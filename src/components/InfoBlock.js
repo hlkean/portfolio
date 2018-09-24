@@ -17,6 +17,7 @@ export class InfoBlock extends Component {
     render = () => {
         // Check if there's an image and load proper class
         const isImage = this.props.image;
+        const isLinks = this.props.links;
         let classList = 'info-head';
         if(isImage) {
             classList = classList + ' -img';
@@ -26,9 +27,6 @@ export class InfoBlock extends Component {
                 <div className={classList}>
                     {isImage ? (
                             <img src={`${window.location.origin}${this.props.image}`} alt={this.props.title} /> 
-                        //  ) : (
-                        //     <h2>{this.props.title}</h2>
-                        // )
                         ) : (
                             <FontAwesomeIcon icon={this.props.icon} size="3x" className="primary"/>
                         )
@@ -40,6 +38,13 @@ export class InfoBlock extends Component {
                     <p>
                         {this.props.body}
                     </p>
+                    <ul className="tabs">
+                    {isLinks && 
+                        Object.keys(this.props.links).map((key) => {
+                           return <li><a href={this.props.links[key]} target="_blank">{key}</a></li>
+                        })
+                     }
+                     </ul>
                 </div>
             </div>
         );
