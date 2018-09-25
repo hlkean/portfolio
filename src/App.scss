@@ -12,6 +12,10 @@ body {
   overflow-x:hidden;
 }
 
+ul {
+  margin: 0;
+}
+
 body.loaded {
   animation: fadeIn 3.75s forwards ease;
 }
@@ -167,9 +171,11 @@ nav a {
 .wrap-wrapper {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap:wrap;
   flex: 0 1 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .wrap-item {
   display: flex;
@@ -179,6 +185,7 @@ nav a {
   flex: 1 0 auto;
   flex-basis: 45%;
   align-content: baseline;
+  max-width: 800px;
 }
 /* #client:last-child {
   margin: 0 20px 0 0;
@@ -264,6 +271,16 @@ polygon.fade-in {
 .comp-fade-exit-active {
   opacity: 0.01;
   transition: opacity 3000ms ease-in;
+}
+
+.button {
+  text-decoration: none;
+  background-color: $color-primary;
+  border: 3px solid $color-secondary;
+  color: $color-white;
+  padding: 5px 10px;
+  margin: 0 15px 15px;
+  display: block;
 }
 
 /* @keyframes shift-up {

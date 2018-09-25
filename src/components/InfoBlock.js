@@ -38,10 +38,10 @@ export class InfoBlock extends Component {
                     <p>
                         {this.props.body}
                     </p>
-                    <ul className="tabs">
+                    <ul className="links">
                     {isLinks && 
                         Object.keys(this.props.links).map((key) => {
-                           return <li><a href={this.props.links[key]} target="_blank">{key}</a></li>
+                           return <li><a href={this.props.links[key]} target="_blank" className="button">{key}</a></li>
                         })
                      }
                      </ul>

@@ -62,7 +62,7 @@
 .info-body {
   box-shadow: 0px 10px 20px -7px #000;
   margin-top: -45px;
-  padding: 10px;
+  padding: 15px;
   padding-top: 55px;
   flex-basis: 100%;
   color: #002d56;
@@ -85,6 +85,16 @@
   border: none;
   margin: 16px auto 0; }
 
+.links {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  flex-wrap: wrap; }
+  .links li {
+    flex-grow: 1; }
+
 .svg-inline--fa.primary path {
   fill: #2181bd; }
 
@@ -98,6 +108,9 @@ body {
   background-color: #002d56;
   font-size: 16px;
   overflow-x: hidden; }
+
+ul {
+  margin: 0; }
 
 body.loaded {
   animation: fadeIn 3.75s forwards ease; }
@@ -240,9 +253,11 @@ nav a {
 .wrap-wrapper {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  flex: 0 1 auto; }
+  flex: 0 1 auto;
+  max-width: 1200px;
+  margin: 0 auto; }
 
 .wrap-item {
   display: flex;
@@ -251,7 +266,8 @@ nav a {
   margin: 0 20px;
   flex: 1 0 auto;
   flex-basis: 45%;
-  align-content: baseline; }
+  align-content: baseline;
+  max-width: 800px; }
 
 /* #client:last-child {
   margin: 0 20px 0 0;
@@ -329,6 +345,15 @@ polygon.fade-in {
 .comp-fade-exit-active {
   opacity: 0.01;
   transition: opacity 3000ms ease-in; }
+
+.button {
+  text-decoration: none;
+  background-color: #002d56;
+  border: 3px solid #2181bd;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0 15px 15px;
+  display: block; }
 
 /* @keyframes shift-up {
   to {
