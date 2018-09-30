@@ -10,8 +10,6 @@ export class InfoBlock extends Component {
 
     };
     componentDidMount = () => { 
-        document.getElementById('nav').classList.remove('init');
-        document.getElementById('nav').classList.add('-top');
 
     };
     render = () => {

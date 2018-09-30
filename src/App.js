@@ -8,6 +8,7 @@ import { faServer, faDesktop, faPeopleCarry, faHandshake, faObjectGroup, faPalet
 
 import { Navbar } from "./components/Navbar";
 import { Work } from "./components/Work";
+import { Contact } from "./components/Contact";
 import { Intro } from "./components/Intro";
 import { Nope } from "./components/Nope";
 
@@ -66,6 +67,7 @@ class App extends Component {
             <Route exact path="/" render={(props) => (<Intro {...props}/>)} />
             {/* loaded={this.introComplete} */}
             <Route path="/work" render={(props) => (<Work {...props} />)} />
+            <Route path="/contact" render={(props) => (<Contact {...props} />)} />
             <Route render={(props) => (<Nope {...props} />)} />
           </Switch>
         {/* <Route path="/topics" component={Topics} /> */}

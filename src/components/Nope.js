@@ -11,8 +11,7 @@ export class Nope extends Component {
     };
     componentDidMount = () => { 
         // this.transition = this.transition.bind(this);
-        document.getElementById('nav').classList.remove('init');
-        document.getElementById('nav').classList.add('-top');
+        
 
     };
     render () {

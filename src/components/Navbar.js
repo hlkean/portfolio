@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import initials from '../images/initials.svg';
+import { NavLink } from "react-router-dom";
 
 export class Navbar extends Component {
     constructor (props) {
@@ -10,49 +11,34 @@ export class Navbar extends Component {
     }
     componentDidMount = () => {
         if(this.props.location.pathname === '/') {
-            document.getElementById('nav').style.top = '100vh';
+            document.getElementById('nav').classList.remove('-top');
         } else {
             this.setState({top: true});
+            // document.getElementById('nav').classList.add('-top');
         }
-    };
-    componentDidUpdate = (prevProps) => {
-        // let self = this;
-        // window.setTimeout('500', function(self) {
-        //     console.log(self.props.location.pathname !== prevProps.location.pathname);
-        //     if (self.props.location.pathname !== prevProps.location.pathname) {
-        //         self.onRouteChanged();
-        //     }
-        // });
-        
-        // componentDidUpdate(prevProps) {
-        //     if (this.props.location !== prevProps.location) {
-        //       this.onRouteChanged();
-        //     }
-        //   }
     };
     transition = () => { 
-        if(!this.top) {
-            document.getElementById('nav').classList.add('-top');
+        if(!this.state.top) {
+            document.getElementById('nav').classList.add('-moving');
+            document.getElementsByClassName('page-content')[0].classList.add('new');
+            document.getElementById('nav').classList.remove('init');
             this.setState({top: true});
-        } else {
-            document.getElementById('nav').classList.remove('-top');
-            this.setState({top: false});
-        }
+            setTimeout(function() {
+                document.getElementById('nav').classList.add('-top');
+                document.getElementsByClassName('page-content')[0].classList.remove('new');
+                document.getElementById('nav').classList.remove('-moving');
+                
+            }, 4000);
+        } 
     };
 
     render = () => {
         return (
-            <nav id="nav" >
+            <nav id="nav" className="-top">
                 <ul className="-no-list">
                     <li className="-no-list">
-                        {/* <span onClick={this.transition}>Work</span> */}
-                        <a href="/work" className="link" onClick={this.transition} >Work</a>                        
-                        {/* <ul className="hide">
-                            <li className="-no-list"><img src="#" alt="Patrón Spirits Company" /></li>
-                            <li className="-no-list"><a href="#"><img src="#" alt="USAA" /></a></li>
-                            <li className="-no-list"><a href="#"><img src="#" alt="Stephens Access" /></a></li>
-                            <li className="-no-list"><a href="#"><img src="#" alt="Southwest Airlines" /></a></li>
-                        </ul> */}
+                    <NavLink to={`/work`} className="link" onClick={this.transition} activeClassName="-active">Work</NavLink>
+                        {/* <a href="/work" className="link" onClick={this.transition}>Work</a>                         */}
                     </li>
                     {this.state.top &&
                     <li id="nav-logo">
@@ -60,7 +46,8 @@ export class Navbar extends Component {
                     </li>
                     }
                     <li className="-no-list">
-                        <a href="#" className="link" >Contact</a>
+                    <NavLink to={`/contact`} className="link" onClick={this.transition} activeClassName="-active">Contact</NavLink>
+                        {/* <a href="/contact" className="link" onClick={this.transition}>Contact</a> */}
                     </li>
                 </ul>
             </nav>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {TweenMax, Power2, TimelineMax} from "gsap/TweenMax";
+import {Power2, TimelineMax} from "gsap/TweenMax";
 import { NavLink } from "react-router-dom";
 import { InfoSection } from "./InfoSection";
 import brain_left from '../images/brain_left.svg';
@@ -22,9 +22,7 @@ export class Work extends Component {
         window.addEventListener('scroll', this.handleScroll);
         // Create variable for sticky nav offset as this changes once the nav is fixed
         this.sticky = this.subNav.current.offsetTop;
-        
-        document.getElementById('nav').classList.remove('init');
-        document.getElementById('nav').classList.add('-top');
+    
         let contentWidth = '90%';
         // if(window.innerWidth < 768) {
         //     contentWidth = '100%';
@@ -63,8 +61,8 @@ export class Work extends Component {
         return (
             <div className="page-content">  
                 <div class="hero">
-                    <img class="brain-left" src={brain_left} />
-                    <img class="brain-right" src={brain_right} />
+                    <img class="brain-left" src={brain_left} alt=""/>
+                    <img class="brain-right" src={brain_right} alt=""/>
                     <div className="brain-insides" ref={this.subNav}>
                         <span className="brain-content">
                             <h2>About Me</h2>

@@ -35,12 +35,7 @@ export class Intro extends Component {
                 <Logo onAnimated={this.trackAnimation}/>
                 <div className={contentClasses.join(' ')}>
                     <h1>Henry Kean</h1>
-                    <h1>Creative-minded developer and self-starter.</h1>
-                    
-                    {/* <h1>My name's Henry and I'm a Creative Web Developer and idea guy!</h1>
-                    <p>I have a deep love for great design, brainstorming award winning projects and concepts, and really bad puns.</p>
-                    <p>I've worked for clients and as part of a product team; I've even worked with prison inmates (helping with personal development more than web development... puns).</p>
-                    <p>Please feel free to take a look around at some of my previous projects. I'm always looking for new opportunities to work and collaborate with others or talk about what I'm currently working on. If something strikes your fancy, drop me a line!</p> */}
+                    <h1>Thinker, tinkerer, developer.</h1>
                 </div>
                 
             </section>
