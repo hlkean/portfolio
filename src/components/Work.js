@@ -11,7 +11,6 @@ export class Work extends Component {
         super(props);
         this.subNav = React.createRef();
         this.subNavBlock = React.createRef();
-        // this.trackAnimation = this.trackAnimation.bind(this);
         this.state = {
             animated: false,
         };
@@ -24,11 +23,13 @@ export class Work extends Component {
         this.sticky = this.subNav.current.offsetTop;
     
         let contentWidth = '90%';
-        // if(window.innerWidth < 768) {
-        //     contentWidth = '100%';
-        // }
+        let delayTime = 0;
+        if(!document.getElementById('nav').classList.contains('-top')) {
+            document.getElementsByClassName('page-content')[0].classList.add('new');
+            delayTime = 1.5;
+        }
         
-        let tl = new TimelineMax({repeat:0, delay:3});
+        let tl = new TimelineMax({repeat:0, delay:delayTime});
             tl    
                 .to(".brain-insides", 1.5, {css: {width: contentWidth, boxShadow: '#000 0 0 12px 0'}, ease:Power2.easeInOut}, 0)
                 .set(".brain-content", {display:"block"})

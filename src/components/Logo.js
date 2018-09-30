@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {TweenMax, Power2, TimelineMax} from "gsap/TweenMax";
+import {Power2, TimelineMax} from "gsap/TweenMax";
 
 export class Logo extends Component {
     componentDidMount = () => { 
@@ -15,7 +15,6 @@ export class Logo extends Component {
                 .to("#logo p", 1, {css: {opacity: 0}, ease:Power2.easeOut}, 2);
     
             document.body.classList.add('loaded');
-            // document.getElementById('loader').style.display = 'none';
             document.getElementById('H').classList.add('fade-in');
             document.getElementById('K').classList.add('fade-in');
         }

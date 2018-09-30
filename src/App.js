@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faServer, faDesktop, faPeopleCarry, faHandshake, faObjectGroup, faPalette, faUserTie, faChartBar } from '@fortawesome/free-solid-svg-icons';
 
 import { Navbar } from "./components/Navbar";
