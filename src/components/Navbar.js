@@ -10,7 +10,6 @@ export class Navbar extends Component {
         };
     }
     componentDidMount = () => {
-        console.log('mount');   
         if(this.props.location.pathname === '/') {
             document.getElementById('nav').classList.remove('-top');
         } else {
@@ -21,14 +20,12 @@ export class Navbar extends Component {
         if(!this.state.top) {
             document.getElementById('nav').classList.add('-moving');
             document.getElementById('nav').classList.remove('init');
-            let self = this;
+            this.setState({top: true});
             setTimeout(function() {
                 document.getElementById('nav').classList.add('-top');
                 document.getElementsByClassName('page-content')[0].classList.remove('new');
                 document.getElementById('nav').classList.remove('-moving');
-                self.setState({top: true});
-                
-            }, 4000, self);
+            }, 4000);
         } 
     };
 
