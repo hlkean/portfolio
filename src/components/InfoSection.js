@@ -6,7 +6,7 @@ import data from '../data.json';
 export class InfoSection extends Component {
     render () {
         return (
-        <div class="wrap-wrapper">
+        <div className="wrap-wrapper">
             <Switch>
                 <Route path={`${this.props.path}`} exact render={(props) => (
                     data.humans.map(function (human, index) {

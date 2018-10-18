@@ -61,9 +61,9 @@ export class About extends Component {
         const { path } = this.props.match;
         return (
             <div className="page-content">  
-                <div class="hero">
-                    <img class="brain-left" src={brain_left} alt=""/>
-                    <img class="brain-right" src={brain_right} alt=""/>
+                <div className="hero">
+                    <img className="brain-left" src={brain_left} alt=""/>
+                    <img className="brain-right" src={brain_right} alt=""/>
                     <div className="brain-insides" ref={this.subNav}>
                         <span className="brain-content">
                             <h2>About Me</h2>

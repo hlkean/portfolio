@@ -1,0 +1,8 @@
+.logo-exit {
+  opacity: 1;
+}
+
+.logo-exit.logo-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

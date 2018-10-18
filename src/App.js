@@ -36,6 +36,7 @@ class App extends Component {
       heroTransition: false,
       loaded: document.getElementById('root').classList.contains('complete')
     };
+    this.hero = React.createRef();
   };  
 
   introComplete = () => {
@@ -43,8 +44,12 @@ class App extends Component {
   };
 
   transitionHero = (page) => {
-    if(!this.heroTransition && page !== '/') {
-      this.setState({heroTransition: true});
+    if(!this.heroTransition && page === '/') {
+      this.setState({
+        heroTransition: true
+        // trigger collapse after state changes
+      },() => { this.hero.current.update(this.state.heroTransition)});
+      
     } else {
       this.setState({heroTransition: false});
     }
@@ -74,7 +79,7 @@ class App extends Component {
                 the old location as it animates out
             */}
 
-        <Route render={props => (<Hero {...props}/>)} />
+        <Route render={props => (<Hero {...props} ref={this.hero} test={this.state.heroTransition}/>)} />
           
           <Switch>
             <Route exact path="/" render={(props) => (<Intro {...props}/>)} />

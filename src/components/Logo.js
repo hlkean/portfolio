@@ -18,6 +18,9 @@ export class Logo extends Component {
             document.getElementById('H').classList.add('fade-in');
             document.getElementById('K').classList.add('fade-in');
         }
+        if(this.props.collapse) {
+            this.collapse();
+        };
     };
 
     collapse = () => {
