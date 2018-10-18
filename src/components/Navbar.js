@@ -17,14 +17,11 @@ export class Navbar extends Component {
         }
     };
     transition = () => { 
+        this.props.onTransition(this.props.location.pathname);
         if(!this.state.top) {
-            document.getElementById('nav').classList.add('-moving');
-            document.getElementById('nav').classList.remove('init');
             this.setState({top: true});
             setTimeout(function() {
-                document.getElementById('nav').classList.add('-top');
                 document.getElementsByClassName('page-content')[0].classList.remove('new');
-                document.getElementById('nav').classList.remove('-moving');
             }, 4000);
         } 
     };
@@ -34,7 +31,7 @@ export class Navbar extends Component {
             <nav id="nav" className="-top">
                 <ul className="-no-list">
                     <li className="-no-list">
-                    <NavLink to={`/work`} className="link" onClick={this.transition} activeClassName="-active">Work</NavLink>
+                    <NavLink to={`/about`} className="link" onClick={this.transition} activeClassName="-active">About</NavLink>
                     </li>
                     {this.state.top &&
                     <li id="nav-logo">

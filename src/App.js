@@ -7,7 +7,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faServer, faDesktop, faPeopleCarry, faHandshake, faObjectGroup, faPalette, faUserTie, faChartBar } from '@fortawesome/free-solid-svg-icons';
 
 import { Navbar } from "./components/Navbar";
-import { Work } from "./components/Work";
+import { Hero } from "./components/Hero";
+import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Intro } from "./components/Intro";
 import { Nope } from "./components/Nope";
@@ -27,16 +28,26 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.introComplete = this.introComplete.bind(this);
+    this.transitionHero = this.transitionHero.bind(this);
     this.state = {
       loading: true,
       introComplete: false,
       loadContent: false,
+      heroTransition: false,
       loaded: document.getElementById('root').classList.contains('complete')
     };
   };  
 
   introComplete = () => {
     this.setState({introComplete: true});
+  };
+
+  transitionHero = (page) => {
+    if(!this.heroTransition && page !== '/') {
+      this.setState({heroTransition: true});
+    } else {
+      this.setState({heroTransition: false});
+    }
   };
   
   noLoading = () => {
@@ -55,18 +66,20 @@ class App extends Component {
       <div>
       {/* viewChange={this.loadNewContent} location={this.location}  */}
         {/* Nav bar */}
-        <Route render={props => (<Navbar {...props} />)} />
+        <Route render={props => (<Navbar {...props} onTransition={this.transitionHero}/>)} />
         {/* loading={this.loading} onComplete={this.introComplete} componentDidMount={this.noLoading} */}
               {/* no different than other usage of
                 CSSTransition, just make sure to pass
                 `location` to `Switch` so it can match
                 the old location as it animates out
             */}
+
+        <Route render={props => (<Hero {...props}/>)} />
           
           <Switch>
             <Route exact path="/" render={(props) => (<Intro {...props}/>)} />
             {/* loaded={this.introComplete} */}
-            <Route path="/work" render={(props) => (<Work {...props} />)} />
+            <Route path="/about" render={(props) => (<About {...props} />)} />
             <Route path="/contact" render={(props) => (<Contact {...props} />)} />
             <Route render={(props) => (<Nope {...props} />)} />
           </Switch>

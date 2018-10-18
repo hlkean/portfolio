@@ -8,16 +8,17 @@ nav {
     font-family: $font-primary;
     z-index: 3;
   }
-  nav.init {
-    animation: navUp 1.5s forwards cubic-bezier(0.6,-0.22, 0.12, 0.99);
-  }
+  // nav.init {
+  //   animation: navDown 1.5s forwards ease-in-out;
+  //   // cubic-bezier(0.6,-0.22, 0.12, 0.99);
+  // }
   nav.-top {
-      top:0;
+    animation: navDown 1.5s forwards ease-in-out;
   }
 
-  nav.-moving {
-    animation: navTop 1.5s forwards ease-in-out;
-  }
+  // nav.-moving {
+  //   animation: navTop 1.5s forwards ease-in-out;
+  // }
 
   nav ul {
     flex-direction: row;
@@ -39,4 +40,17 @@ nav {
     opacity:0;
     animation: slideIn 1s forwards cubic-bezier(0.25, 0.1, 0.46, 1.31);
     animation-delay: 2s;
+  }
+
+  @keyframes navDown {
+    0% {
+      top: -75px;
+    }
+    75% {
+      /* padding-top:0; */
+      top: 10px;
+    }
+    100% {
+      top:0;
+    }
   }

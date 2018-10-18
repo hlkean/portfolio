@@ -17,7 +17,7 @@ export class Intro extends Component {
     };
     trackAnimation = () => { 
         this.setState({animated: true});
-        document.getElementById('nav').classList.add('init');  
+        document.getElementById('nav').classList.add('-top');  
     };
     transition = () => { 
         this.setState({
@@ -32,7 +32,7 @@ export class Intro extends Component {
         }
         return (
             <section id="intro">
-                <Logo onAnimated={this.trackAnimation}/>
+                {/* <Logo onAnimated={this.trackAnimation}/> */}
                 <div className={contentClasses.join(' ')}>
                     <h1>Henry Kean</h1>
                     <h1>Thinker, tinkerer, developer.</h1>

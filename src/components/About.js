@@ -6,7 +6,7 @@ import brain_left from '../images/brain_left.svg';
 import brain_right from '../images/brain_right.svg';
 
 
-export class Work extends Component {
+export class About extends Component {
     constructor (props) {
         super(props);
         this.subNav = React.createRef();
