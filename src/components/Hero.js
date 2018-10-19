@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import {Power2, TimelineMax} from "gsap/TweenMax";
+import {CSSTransition} from "react-transition-group"
 import { Logo } from "./Logo";
 
 export class Hero extends Component {
@@ -41,7 +42,11 @@ export class Hero extends Component {
         document.getElementById('nav').classList.add('-top');  
     };
     trackCollapse = () => {
-        this.setState({logoCollapsed: true});
+        // let self = this;
+        // let tl = new TimelineMax({repeat:0, delay:0});
+        //     tl
+        //         .to(".hero-content", 1.25, {attr: {"fill-opacity":1}, ease:Power2.easeOut}, 0)
+        this.setState({intro: false});
     }
     transition = () => { 
         this.setState({
@@ -54,16 +59,18 @@ export class Hero extends Component {
         return (
             <section id="intro">
                 {isIntro ? (
-                    <Logo onAnimated={this.trackAnimation} ref={this.logo} collapse={this.state.collapse} onCollapse={this.trackCollapse}/>
+                    <CSSTransition timeout={1000} classNames="logo" in={isIntro}>
+                        <Logo onAnimated={this.trackAnimation} ref={this.logo} collapse={this.state.collapse} onCollapse={this.trackCollapse}/>
+                    </CSSTransition>
                 ) : (
-                    <div className="brain-insides" ref={this.subNav}>
-                    <span className="brain-content">
+                    // <div className="info-container">
+                    <span className="hero-content">
                         <h2>About Me</h2>
                         <p>I’m an energetic, passionate, and fun loving web engineer. I love finding simple solutions to difficult problems and learning new things in the process.</p>
                         <p>With an education in psychology and interactive media, and experience working with a variety of populations and people - from maximum security inmates to children to enterprise level clients - I’ve learned to listen, interpret, analyze, and execute.</p>
                         <p>Below are a few of the skills I’ve gained over the years working as part of a product team as well as a lean creative team and some of the clients I’ve had pleasure to work with.</p>
                     </span>
-                    </div>
+                    // </div>
                 )}
 
                 
