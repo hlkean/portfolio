@@ -21,7 +21,7 @@ export class Navbar extends Component {
         if(!this.state.top) {
             this.setState({top: true});
             setTimeout(function() {
-                document.getElementsByClassName('page-content')[0].classList.remove('new');
+                // document.getElementsByClassName('page-content')[0].classList.remove('new');
             }, 4000);
         } 
     };

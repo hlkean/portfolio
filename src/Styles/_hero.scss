@@ -1,0 +1,25 @@
+#hero-content {
+    background-color: $color-white;
+    border: 5px solid $color-secondary;
+    max-width: 700px;
+    width: 166px;
+    height: 79px;
+    margin-top: -3px;
+    margin-left: 9px;
+    /* margin: 0 auto; */
+    overflow: hidden;
+    position: absolute;
+    align-self: center;
+    text-align:center;
+    z-index: 2;
+
+   .body {
+        // flex: 0 1 auto;
+        text-align: center;
+        // box-shadow: 0px 17px 17px -15px;
+        padding: 20px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+    }
+}

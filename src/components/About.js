@@ -9,8 +9,8 @@ import brain_right from '../images/brain_right.svg';
 export class About extends Component {
     constructor (props) {
         super(props);
-        this.subNav = React.createRef();
-        this.subNavBlock = React.createRef();
+        // this.subNav = React.createRef();
+        // this.subNavBlock = React.createRef();
         this.state = {
             animated: false,
         };
@@ -18,9 +18,9 @@ export class About extends Component {
     };
 
     componentDidMount = () => {
-        window.addEventListener('scroll', this.handleScroll);
-        // Create variable for sticky nav offset as this changes once the nav is fixed
-        this.sticky = this.subNav.current.offsetTop;
+        // window.addEventListener('scroll', this.handleScroll);
+        // // Create variable for sticky nav offset as this changes once the nav is fixed
+        // this.sticky = this.subNav.current.offsetTop;
     
         let contentWidth = '90%';
         let delayTime = 0;
@@ -41,14 +41,14 @@ export class About extends Component {
                 .to(".brain-right", 1, {css: {left: '70%'}, ease:Power2.easeIn}, 1.5)
                 .from(".brain-content", 1, {autoAlpha:0, y: 100}, 1.5);
     };
-    handleScroll = () => {
-        if(window.scrollY + 75 > ((this.subNav.current.clientHeight + this.sticky) - (this.subNavBlock.current.clientHeight + 40) - 75)) {
-            this.subNav.current.style.position = 'fixed';
-            this.subNav.current.style.top = -Math.abs(this.subNav.current.clientHeight - (this.subNavBlock.current.clientHeight + 40) - 75) + 'px';
-        } else {
-            this.subNav.current.style.position = 'initial';
-        };
-    };
+    // handleScroll = () => {
+    //     if(window.scrollY + 75 > ((this.subNav.current.clientHeight + this.sticky) - (this.subNavBlock.current.clientHeight + 40) - 75)) {
+    //         this.subNav.current.style.position = 'fixed';
+    //         this.subNav.current.style.top = -Math.abs(this.subNav.current.clientHeight - (this.subNavBlock.current.clientHeight + 40) - 75) + 'px';
+    //     } else {
+    //         this.subNav.current.style.position = 'initial';
+    //     };
+    // };
     scrollToContent = () => {
 
     };
@@ -82,7 +82,7 @@ export class About extends Component {
                             <p>
                                 Working with:
                             </p> */}
-                            <ul className="tabs" ref={this.subNavBlock}>
+                            {/* <ul className="tabs" ref={this.subNavBlock}>
                                 <li>
                                     <span>
                                         <NavLink exact to={`${path}`} className="link -dark" activeClassName="-active">People Skills</NavLink>
@@ -98,7 +98,7 @@ export class About extends Component {
                                         <NavLink to={`${path}/clients`} className="link -dark" activeClassName="-active">Clients</NavLink>
                                     </span>
                                 </li>
-                            </ul>
+                            </ul> */}
                         </span>
                     </div>
                 </div>

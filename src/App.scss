@@ -4,6 +4,7 @@
 @import 'Styles/icons';
 @import 'Styles/nav';
 @import 'Styles/contact';
+@import 'Styles/hero';
 
 
 body {
@@ -12,7 +13,7 @@ body {
   font-family: $font-primary;
   background-color: $color-primary;
   font-size: 16px;
-  overflow-x:hidden;
+  // overflow-x:hidden;
 }
 
 ul {
