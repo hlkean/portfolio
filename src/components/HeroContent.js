@@ -17,8 +17,9 @@ export class HeroContent extends Component {
     //    Animate height with content
     let tl = new TimelineMax({repeat:0, delay:0, onComplete: this.props.onOpen()});
     tl
-        .set("#hero-content", {height:'auto', width: 'auto', marginLeft: 0, marginTop: 0})
-        .from("#hero-content",1,{height:"79px", width: "166px", immediateRender:true, ease:Power2.easeInOut});
+        .set("#hero-content", {height:'auto', width: 'auto'})
+        .to("#hero-content", 1, { marginLeft: 0, marginTop: 0, immediateRender: true, ease: Power2.easeInOut }, 0)
+        .from("#hero-content",1,{height:"79px", width: "166px", immediateRender:true, ease:Power2.easeInOut}, 0);
     
         window.addEventListener('scroll', this.handleScroll);
     // Create variable for sticky nav offset as this changes once the nav is fixed
