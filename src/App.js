@@ -72,22 +72,20 @@ class App extends Component {
       <div>
       {/* viewChange={this.loadNewContent} location={this.location}  */}
         {/* Nav bar */}
-        <Route render={props => (<Navbar {...props} onTransition={this.transitionHero}/>)} />
+        <Route path="/" render={props => (<Navbar {...props} onTransition={this.transitionHero}/>)} />
         {/* loading={this.loading} onComplete={this.introComplete} componentDidMount={this.noLoading} */}
               {/* no different than other usage of
                 CSSTransition, just make sure to pass
                 `location` to `Switch` so it can match
                 the old location as it animates out
             */}
-
-        <Route render={props => (<Hero {...props} ref={this.hero} test={this.state.heroTransition}/>)} />
-          
+          <Route render={props => (<Hero {...props} ref={this.hero} test={this.state.heroTransition}/>)} />
           <Switch>
-            <Route exact path="/" render={(props) => (<Intro {...props}/>)} />
+            {/* <Route exact path="/" render={(props) => (<Intro {...props}/>)} /> */}
             {/* loaded={this.introComplete} */}
             <Route path="/about" render={(props) => (<InfoSection {...props} path="/about"/>)} />
             <Route path="/contact" render={(props) => (<Contact {...props} />)} />
-            <Route render={(props) => (<Nope {...props} />)} />
+            {/* <Route render={(props) => (<Nope {...props} />)} /> */}
           </Switch>
         {/* <Route path="/topics" component={Topics} /> */}
       </div>
