@@ -84,7 +84,7 @@ class App extends Component {
             {/* <Route exact path="/" render={(props) => (<Intro {...props}/>)} /> */}
             {/* loaded={this.introComplete} */}
             <Route path="/about" render={(props) => (<InfoSection {...props} path="/about"/>)} />
-            <Route path="/contact" render={(props) => (<Contact {...props} />)} />
+            {/* <Route path="/contact" render={(props) => (<Contact {...props} />)} /> */}
             {/* <Route render={(props) => (<Nope {...props} />)} /> */}
           </Switch>
         {/* <Route path="/topics" component={Topics} /> */}

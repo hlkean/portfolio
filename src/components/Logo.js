@@ -4,7 +4,7 @@ import {Power2, TimelineMax} from "gsap/TweenMax";
 export class Logo extends Component {
     componentDidMount = () => { 
         if(!this.props.loading) {
-            document.body.style.backgroundColor = '#000';
+            // document.body.style.backgroundColor = '#000';
             let self = this;
             let tl = new TimelineMax({repeat:0, delay:2.5, onComplete: function() {self.props.onAnimated()}});
             tl
@@ -13,8 +13,9 @@ export class Logo extends Component {
                 .to("feColorMatrix", 1.25, {attr: {values:"0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"}, ease:Power2.easeOut}, 0)
                 .to("#logo p", 2, {css: {opacity: 1}, ease:Power2.easeOut}, 0)
                 .to("#logo p", 1, {css: {opacity: 0}, ease:Power2.easeOut}, 2);
-    
-            document.body.classList.add('loaded');
+            if (this.props.location === '/') {
+                document.body.classList.add('loaded');
+            }
             document.getElementById('H').classList.add('fade-in');
             document.getElementById('K').classList.add('fade-in');
         }

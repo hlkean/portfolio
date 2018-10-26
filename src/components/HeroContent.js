@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Power2, TimelineMax} from "gsap/TweenMax";
 import { NavLink } from "react-router-dom";
+import img from '../images/me.jpg';
+import resume from '../images/Henry_Kean_2018.pdf';
 
 export class HeroContent extends Component {
     constructor (props) {
@@ -12,8 +14,7 @@ export class HeroContent extends Component {
         this.subNav = React.createRef();
 
     };
-    componentDidMount = () => { 
-        console.log(this.props.path);       
+    componentDidMount = () => {       
     //    Animate height with content
     let tl = new TimelineMax({repeat:0, delay:0, onComplete: this.props.onOpen()});
     tl
@@ -21,8 +22,9 @@ export class HeroContent extends Component {
         .set("#hero-content", {height:'auto', width: '90%', position: 'initial'})
         .to("#hero-content", 1, { marginLeft: 0, marginTop: 100, immediateRender: true, ease: Power2.easeInOut }, 0)
         .from("#hero-content",1,{height:"79px", width: "166px", immediateRender:true, ease:Power2.easeInOut}, 0);
-    
-        window.addEventListener('scroll', this.handleScroll);
+        if (this.props.location !== '/contact') {
+            window.addEventListener('scroll', this.handleScroll);
+        }
     // Create variable for sticky nav offset as this changes once the nav is fixed
     this.sticky = this.subNav.current.offsetTop;
 
@@ -45,6 +47,16 @@ export class HeroContent extends Component {
         
         return (
             <div id="hero-content" ref={this.subNav}>
+                {(this.props.location === '/contact')
+                ? (
+                <div className="body">
+                    <h2>Reach Out</h2>
+                    <p>I'm always looking for new opportunities to work on great projects with awesome people.</p>
+                    <p>Please feel free to grab a copy of <a href={resume} download>my résumé</a>, reach out by email at <a href="mailto:hlkean@gmail.com">hlkean@gmail.com</a>, or on <a href="https://www.linkedin.com/in/henrykean" target="_blank">LinkedIn</a>.</p>
+                </div>
+                )
+                : (
+                    <div>
                 <div className="body">
                     <h2>About Me</h2>
                     <p>I’m an energetic, passionate, and fun loving web engineer. I love finding simple solutions to difficult problems and learning new things in the process.</p>
@@ -67,7 +79,7 @@ export class HeroContent extends Component {
                             <NavLink to={`${path}/clients`} className="link -dark" activeClassName="-active">Clients</NavLink>
                         </span>
                     </li>
-                </ul>
+                </ul></div> )}
             </div>
         );
     }

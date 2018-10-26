@@ -64,10 +64,10 @@ export class Hero extends Component {
             <section id="intro">
                 
                 {!this.state.contentIn &&
-                    <Logo onAnimated={this.trackAnimation} ref={this.logo} collapse={this.state.collapse} onCollapse={this.trackCollapse}/>
+                    <Logo onAnimated={this.trackAnimation} location={this.props.location.pathname} ref={this.logo} collapse={this.state.collapse} onCollapse={this.trackCollapse}/>
                 }
                 {!isIntro &&    
-                    <HeroContent onOpen={this.hideLogo}/>
+                    <HeroContent onOpen={this.hideLogo} location={this.props.location.pathname}/>
                 }
                 
             </section>
