@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Power2, TimelineMax} from "gsap/TweenMax";
 import { Logo } from "./Logo";
 import {HeroContent} from "./HeroContent";
+import { Intro } from "./Intro";
 
 export class Hero extends Component {
     constructor (props) {
@@ -34,6 +34,7 @@ export class Hero extends Component {
 
     };
     update = (change) => {
+        document.querySelector('.content').classList.add('fade-out');
         if(change) {
             this.logo.current.collapse();
         }
@@ -44,6 +45,7 @@ export class Hero extends Component {
     trackAnimation = () => { 
         this.setState({animated: true});
         document.getElementById('nav').classList.add('-top');  
+        document.querySelector('.content').classList.add('fade-in');
     };
     trackCollapse = () => {
         // let self = this;
@@ -64,7 +66,13 @@ export class Hero extends Component {
             <section id="intro">
                 
                 {!this.state.contentIn &&
+                <div>
                     <Logo onAnimated={this.trackAnimation} location={this.props.location.pathname} ref={this.logo} collapse={this.state.collapse} onCollapse={this.trackCollapse}/>
+                    <div className="content">
+                        <h1>Henry Kean</h1>
+                        <h1>Thinker, tinkerer, developer.</h1>
+                    </div>   
+                </div>
                 }
                 {!isIntro &&    
                     <HeroContent onOpen={this.hideLogo} location={this.props.location.pathname}/>

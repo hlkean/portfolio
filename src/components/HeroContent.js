@@ -20,6 +20,7 @@ export class HeroContent extends Component {
     tl
         // .set("#intro", {height:'100%', marginBottom: 50})
         .set("#hero-content", {height:'auto', width: '90%', position: 'initial'})
+        .to("#intro", 1.5, { height: 'calc(100vh - 70px)', immediateRender: true, ease: Power2.easeInOut }, 0)
         .to("#hero-content", 1, { marginLeft: 0, marginTop: 100, immediateRender: true, ease: Power2.easeInOut }, 0)
         .from("#hero-content",1,{height:"79px", width: "166px", immediateRender:true, ease:Power2.easeInOut}, 0);
         if (this.props.location !== '/contact') {

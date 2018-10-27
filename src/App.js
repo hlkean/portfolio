@@ -8,11 +8,7 @@ import { faServer, faDesktop, faPeopleCarry, faHandshake, faObjectGroup, faPalet
 
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
-import { About } from "./components/About";
 import {InfoSection} from "./components/InfoSection";
-import { Contact } from "./components/Contact";
-import { Intro } from "./components/Intro";
-import { Nope } from "./components/Nope";
 
 library.add(faChartBar);
 library.add(faServer);

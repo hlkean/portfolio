@@ -32,7 +32,6 @@ export class Intro extends Component {
         }
         return (
             <section id="intro">
-                {/* <Logo onAnimated={this.trackAnimation}/> */}
                 <div className={contentClasses.join(' ')}>
                     <h1>Henry Kean</h1>
                     <h1>Thinker, tinkerer, developer.</h1>

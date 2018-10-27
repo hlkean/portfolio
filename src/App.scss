@@ -89,9 +89,16 @@ li.-no-list {
   margin: 0 auto;
   text-align: center;
   color: $color-white;
+  transform: translateY(0);
 }
 .content.fade-in {
   animation: fade-in .5s forwards ease-in-out;
+  display: block;
+}
+
+.content.fade-out {
+  opacity: 1;
+  animation: fade-out .5s forwards ease-in-out;
   display: block;
 }
 
@@ -321,6 +328,14 @@ polygon.fade-in {
   to {
     /* padding-top:0; */
     opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    /* padding-top:0; */
+    opacity: 0;
+    transform: translateY(20px);
   }
 }
 

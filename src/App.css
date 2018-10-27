@@ -255,10 +255,16 @@ li.-no-list {
   padding: 0 15px;
   margin: 0 auto;
   text-align: center;
-  color: #fff; }
+  color: #fff;
+  transform: translateY(0); }
 
 .content.fade-in {
   animation: fade-in .5s forwards ease-in-out;
+  display: block; }
+
+.content.fade-out {
+  opacity: 1;
+  animation: fade-out .5s forwards ease-in-out;
   display: block; }
 
 .tabs {
@@ -448,6 +454,12 @@ polygon.fade-in {
   to {
     /* padding-top:0; */
     opacity: 1; } }
+
+@keyframes fade-out {
+  to {
+    /* padding-top:0; */
+    opacity: 0;
+    transform: translateY(20px); } }
 
 @keyframes fadeIn {
   50% {
