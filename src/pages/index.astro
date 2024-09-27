@@ -1,4 +1,5 @@
 ---
+export const prerender = false
 const response = await fetch(Astro.url + "/api");
 const data = await response.json();
 ---
