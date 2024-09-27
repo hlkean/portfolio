@@ -30,6 +30,7 @@ export const prerender = false;
 			<div class="g-recaptcha" data-sitekey="6Lf9Rk8qAAAAAPC3qRq4UTg_MWwmY2Eiy_ZzHPJk"></div>
 			<button type="submit">Send</button>
 		</form> -->
+		<script is:inline src="https://www.google.com/recaptcha/api.js"></script>
 		<button class="g-recaptcha"
       data-sitekey={import.meta.env.CAPTCHA_KEY}
       data-callback="onSubmit"
