@@ -1,5 +1,6 @@
 ---
-
+const response = await fetch(Astro.url + "/api");
+const data = await response.json();
 ---
 
 <html lang="en">
@@ -12,5 +13,6 @@
 	</head>
 	<body>
 		<h1>Astro</h1>
+		<p>{data.message}</p>
 	</body>
 </html>
