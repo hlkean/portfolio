@@ -32,7 +32,7 @@ export const prerender = false;
 		</form> -->
 		<script is:inline src="https://www.google.com/recaptcha/api.js"></script>
 		<button class="g-recaptcha"
-      data-sitekey={import.meta.env.CAPTCHA_KEY}
+      data-sitekey={import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY}
       data-callback="onSubmit"
       data-action="submit" onclick="onSubmit"> Click me to verify the captcha challenge! </button>
 
