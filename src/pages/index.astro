@@ -35,15 +35,41 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 			</button>
 		</form>
 
-    <script is:inline>
+	<script>
+		interface FormFields extends EventTarget {
+			email: HTMLInputElement;
+			message: HTMLTextAreaElement;
+		}
+		
+		interface EmailRequest {
+			email: string;
+			message: string;
+		}
 
 		document?.getElementById('contact-form')?.addEventListener('submit', async (e) => {
 			e.preventDefault();
 			console.log('submitted');
-			const email = e.target?.email?.value;
-			const message = e.target?.message.value;
+			const email = (e.target as FormFields)?.email?.value;
+			const message = (e.target as FormFields)?.message.value;
 			sendEmail({email, message});
 		});
+		function sendEmail({email, message}: EmailRequest) {
+			console.log('send email');
+		fetch("/api/send-email", {
+				method: "POST",
+				body: JSON.stringify({
+					email: email,
+					message: message,
+				}),
+			}).then((response) => {
+				response.json()
+				console.log('response: ', response);
+			}).catch((error) => {
+				console.log("error sending email: ", error);
+			});
+		}
+	</script>
+    <script is:inline>
 		function onSubmit(token) {
 			console.log('captcha submit')
 		fetch("/api/recaptcha", {
@@ -61,21 +87,6 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 			// Captcha verification failed
 			}
 		})
-		}
-		function sendEmail() {
-			console.log('send email');
-		fetch("/api/send-email", {
-				method: "POST",
-				body: JSON.stringify({
-					email: email,
-					message: message,
-				}),
-			}).then((response) => {
-				response.json()
-				console.log('response: ', response);
-			}).catch((error) => {
-				console.log("error sending email: ", error);
-			});
 		}
     </script>
 		
