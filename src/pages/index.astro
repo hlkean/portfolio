@@ -6,6 +6,7 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 ---
 
 <Layout title="Welcome to Astro.">
+	<script is:inline src="https://www.google.com/recaptcha/api.js"></script>
 	<main>
 		<h1>Hey! I'm Henry</h1>
 		<section>
@@ -26,36 +27,56 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 			<li>Github</li>
 			<li>Get in touch</li>
 		</ul>
-		<!-- <form id="contact-form">
+		<form id="contact-form">
 			<input type="email" name="email" placeholder="Your Email" required />
 			<textarea name="message" placeholder="Your Message" required></textarea>
-			<div class="g-recaptcha" data-sitekey="6Lf9Rk8qAAAAAPC3qRq4UTg_MWwmY2Eiy_ZzHPJk"></div>
-			<button type="submit">Send</button>
-		</form> -->
-		<script is:inline src="https://www.google.com/recaptcha/api.js"></script>
-		<button class="g-recaptcha"
-      data-sitekey={site_key}
-      data-callback="onSubmit"
-      data-action="submit"> Click me to verify the captcha challenge! </button>
+			<button class="g-recaptcha" data-sitekey={site_key} data-callback="onSubmit" data-action="submit" type="submit"> 
+				Click me to verify the captcha challenge!
+			</button>
+		</form>
 
     <script is:inline>
-      function onSubmit(token) {
-		console.log('pressed button');
-        fetch("/api/recaptcha", {
-          method: "POST",
-          body: JSON.stringify({ recaptcha: token })
-        })
-        .then((response) => response.json())
-        .then((gResponse) => {
-          if (gResponse.success) {
+
+		document?.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			console.log('submitted');
+			const email = e.target?.email?.value;
+			const message = e.target?.message.value;
+			sendEmail({email, message});
+		});
+		function onSubmit(token) {
+			console.log('captcha submit')
+		fetch("/api/recaptcha", {
+			method: "POST",
+			body: JSON.stringify({ recaptcha: token })
+		})
+		.then((response) => response.json())
+		.then((gResponse) => {
+			if (gResponse.success) {
 			console.log('success!!', gResponse)
-            // Captcha verification was a success
-          } else {
+			document?.getElementById('contact-form').submit();
+			// Captcha verification was a success
+			} else {
 			console.log('womp!', gResponse);
-            // Captcha verification failed
-          }
-        })
-      }
+			// Captcha verification failed
+			}
+		})
+		}
+		function sendEmail() {
+			console.log('send email');
+		fetch("/api/send-email", {
+				method: "POST",
+				body: JSON.stringify({
+					email: email,
+					message: message,
+				}),
+			}).then((response) => {
+				response.json()
+				console.log('response: ', response);
+			}).catch((error) => {
+				console.log("error sending email: ", error);
+			});
+		}
     </script>
 		
 		<!-- <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
