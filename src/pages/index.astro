@@ -33,7 +33,7 @@ export const prerender = false;
 		<button class="g-recaptcha"
       data-sitekey={import.meta.env.CAPTCHA_KEY}
       data-callback="onSubmit"
-      data-action="submit"> Click me to verify the captcha challenge! </button>
+      data-action="submit" onclick="onSubmit"> Click me to verify the captcha challenge! </button>
 
     <script is:inline>
       function onSubmit(token) {
@@ -44,10 +44,10 @@ export const prerender = false;
         .then((response) => response.json())
         .then((gResponse) => {
           if (gResponse.success) {
-			console.log('success!!')
+			console.log('success!!', gResponse)
             // Captcha verification was a success
           } else {
-			console.log('womp!');
+			console.log('womp!', gResponse);
             // Captcha verification failed
           }
         })
