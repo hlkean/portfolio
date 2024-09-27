@@ -31,7 +31,6 @@ const isDev = import.meta.env.MODE === 'development'
 		<form id="contact-form">
 			<input type="email" name="email" placeholder="Your Email" required />
 			<textarea name="message" placeholder="Your Message" required></textarea>
-			<div class="g-recaptcha" data-sitekey={siteKey}></div>
 			<button class="g-recaptcha" data-sitekey={siteKey} data-callback="onSubmit" data-action="submit" type="submit"> 
 				Click me to verify the captcha challenge!
 			</button>
@@ -49,7 +48,8 @@ const isDev = import.meta.env.MODE === 'development'
 				.then((gResponse) => {
 					if (gResponse.success) {
 					console.log('success!!', gResponse)
-					form.dispatchEvent(new Event('submit'));
+					// form.dispatchEvent(new Event('submit'));
+					form.requestSubmit();
 					// Captcha verification was a success
 					} else {
 					console.log('womp!', gResponse);
