@@ -36,7 +36,7 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 		<button class="g-recaptcha"
       data-sitekey={site_key}
       data-callback="onSubmit"
-      data-action="submit" onclick="onSubmit"> Click me to verify the captcha challenge! </button>
+      data-action="submit"> Click me to verify the captcha challenge! </button>
 
     <script is:inline>
       function onSubmit(token) {
