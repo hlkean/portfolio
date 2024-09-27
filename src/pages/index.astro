@@ -46,14 +46,7 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 			message: string;
 		}
 
-		document?.getElementById('contact-form')?.addEventListener('submit', async (e) => {
-			e.preventDefault();
-			console.log('submitted');
-			const email = (e.target as FormFields)?.email?.value;
-			const message = (e.target as FormFields)?.message.value;
-			sendEmail({email, message});
-		});
-		function sendEmail({email, message}: EmailRequest) {
+		const sendEmail = ({email, message}: EmailRequest) =>{
 			console.log('send email');
 		fetch("/api/send-email", {
 				method: "POST",
@@ -66,8 +59,21 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 				console.log('response: ', response);
 			}).catch((error) => {
 				console.log("error sending email: ", error);
+				throw(error);
 			});
 		}
+
+		document?.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			console.log('submitted');
+			try {
+				const email = (e.target as FormFields)?.email?.value;
+				const message = (e.target as FormFields)?.message.value;
+				sendEmail({email, message});
+			} catch (error) {
+				console.log("error sending email: ", error);
+			};
+		});
 	</script>
     <script is:inline>
 		function onSubmit(token) {
@@ -80,7 +86,7 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 		.then((gResponse) => {
 			if (gResponse.success) {
 			console.log('success!!', gResponse)
-			document?.getElementById('contact-form').submit();
+			// document?.getElementById('contact-form').submit();
 			// Captcha verification was a success
 			} else {
 			console.log('womp!', gResponse);
@@ -88,6 +94,14 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 			}
 		})
 		}
+
+		document?.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			console.log('submitted');
+			const email = e.target?.email?.value;
+			const message = e.target?.message.value;
+			sendEmail({email, message});
+		});
     </script>
 		
 		<!-- <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
