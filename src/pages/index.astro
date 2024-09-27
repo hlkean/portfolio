@@ -30,7 +30,7 @@ import Layout from '../layouts/Layout.astro';
 			<button type="submit">Send</button>
 		</form>
 		
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<!-- <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
 		
 		<script>
 			interface FormFields extends EventTarget {
@@ -39,7 +39,7 @@ import Layout from '../layouts/Layout.astro';
 			}
 
 			document?.getElementById('contact-form')?.addEventListener('submit', async (e) => {
-			e.preventDefault();
+				e.preventDefault();
 				const email = (e.target as FormFields)?.email?.value;
 				const message = (e.target as FormFields)?.message.value;
 				const captchaToken = grecaptcha.getResponse();
@@ -63,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
 				alert(`Error: ${data.error}`);
 				}
 			});
-		</script>
+		</script> -->
 	</main>
 </Layout>
 
