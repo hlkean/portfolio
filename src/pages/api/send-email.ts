@@ -11,15 +11,15 @@ export const POST: APIRoute = async ({ request }) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-        user: process.env.GMAIL_USER, // Your Gmail account
-        pass: process.env.GMAIL_APP_PASSWORD, // Gmail App password (use app password, not your Gmail password)
+        user: import.meta.env.GMAIL_USER ?? process.env.GMAIL_USER, // Your Gmail account
+        pass: import.meta.env.GMAIL_APP_PASSWORD ?? process.env.GMAIL_APP_PASSWORD, // Gmail App password (use app password, not your Gmail password)
         },
     });
 
     // Define email options
     let mailOptions = {
-        from: process.env.GMAIL_USER,
-        to: process.env.GMAIL_SELF_EMAIL, // Destination email
+        from: import.meta.env.GMAIL_USER ?? process.env.GMAIL_USER,
+        to: import.meta.env.GMAIL_SELF_EMAIL ?? process.env.GMAIL_SELF_EMAIL, // Destination email
         subject: 'New Contact Form Submission',
         text: `Email: ${data.email}\nMessage: ${data.message}`,
     };

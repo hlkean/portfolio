@@ -2,11 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 export const prerender = false;
 
-const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
+const siteKey = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
+const isDev = import.meta.env.MODE === 'development' 
 ---
 
 <Layout title="Welcome to Astro.">
-	<script is:inline src="https://www.google.com/recaptcha/api.js"></script>
 	<main>
 		<h1>Hey! I'm Henry</h1>
 		<section>
@@ -27,82 +27,45 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 			<li>Github</li>
 			<li>Get in touch</li>
 		</ul>
+		<script is:inline src="https://www.google.com/recaptcha/api.js"></script>
 		<form id="contact-form">
 			<input type="email" name="email" placeholder="Your Email" required />
 			<textarea name="message" placeholder="Your Message" required></textarea>
-			<button class="g-recaptcha" data-sitekey={site_key} data-callback="onSubmit" data-action="submit" type="submit"> 
+			<div class="g-recaptcha" data-sitekey={siteKey}></div>
+			<button class="g-recaptcha" data-sitekey={siteKey} data-callback="onSubmit" data-action="submit" type="submit"> 
 				Click me to verify the captcha challenge!
 			</button>
 		</form>
-
-	<!-- <script>
-		interface FormFields extends EventTarget {
-			email: HTMLInputElement;
-			message: HTMLTextAreaElement;
-		}
-		
-		interface EmailRequest {
-			email: string;
-			message: string;
-		}
-
-		const sendEmail = ({email, message}: EmailRequest) =>{
-			console.log('send email');
-		fetch("/api/send-email", {
-				method: "POST",
-				body: JSON.stringify({
-					email: email,
-					message: message,
-				}),
-			}).then((response) => {
-				response.json()
-				console.log('response: ', response);
-			}).catch((error) => {
-				console.log("error sending email: ", error);
-				throw(error);
-			});
-		}
-
-		document?.getElementById('contact-form')?.addEventListener('submit', async (e) => {
-			e.preventDefault();
-			console.log('submitted');
-			try {
-				const email = (e.target as FormFields)?.email?.value;
-				const message = (e.target as FormFields)?.message.value;
-				sendEmail({email, message});
-			} catch (error) {
-				console.log("error sending email: ", error);
-			};
-		});
-	</script> -->
+	
     <script is:inline>
-		const onSubmit = (token) => {
-			console.log('captcha submit')
-			fetch("/api/recaptcha", {
-				method: "POST",
-				body: JSON.stringify({ recaptcha: token })
-			})
-			.then((response) => response.json())
-			.then((gResponse) => {
-				if (gResponse.success) {
-				console.log('success!!', gResponse)
-				document?.getElementById('contact-form').submit();
-				// Captcha verification was a success
-				} else {
-				console.log('womp!', gResponse);
-				// Captcha verification failed
-				}
-			})
-		}
+		const form = document?.getElementById('contact-form');
+			function onSubmit (token) {
+				console.log('captcha submit')
+				fetch("/api/recaptcha", {
+					method: "POST",
+					body: JSON.stringify({ recaptcha: token })
+				})
+				.then((response) => response.json())
+				.then((gResponse) => {
+					if (gResponse.success) {
+					console.log('success!!', gResponse)
+					form.dispatchEvent(new Event('submit'));
+					// Captcha verification was a success
+					} else {
+					console.log('womp!', gResponse);
+					// Captcha verification failed
+					}
+				})
+			}
 
-		const sendEmail = ({email, message}) =>{
+		function sendEmail ({email, message}) {
 			console.log('send email');
-		fetch("/api/send-email", {
+			fetch("/api/send-email", {
 				method: "POST",
 				body: JSON.stringify({
 					email: email,
 					message: message,
-				}),
+				})
 			}).then((response) => {
 				response.json()
 				console.log('response: ', response);
@@ -124,41 +87,6 @@ const site_key = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
 			};
 		});
     </script>
-		
-		<!-- <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
-		
-		<script>
-			interface FormFields extends EventTarget {
-				email: HTMLInputElement;
-				message: HTMLTextAreaElement;
-			}
-
-			document?.getElementById('contact-form')?.addEventListener('submit', async (e) => {
-				e.preventDefault();
-				const email = (e.target as FormFields)?.email?.value;
-				const message = (e.target as FormFields)?.message.value;
-				const captchaToken = grecaptcha.getResponse();
-			
-				const response = await fetch('https://qrv0rubkp7.execute-api.us-east-2.amazonaws.com/prod/send-email', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					email: email,
-					message: message,
-					captchaToken: captchaToken,
-				}),
-				});
-			
-				const data = await response.json();
-				if (response.ok) {
-				alert(data.message);
-				} else {
-				alert(`Error: ${data.error}`);
-				}
-			});
-		</script> -->
 	</main>
 </Layout>
 
