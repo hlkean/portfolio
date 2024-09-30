@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>Hey! I'm Henry</h1>
+		<section>
+			<div>
+				<p>
+					I'm a Maine based software engineer and this is a space I'm creating to store my musings, ideas, and just-for-fun explorations that I work on when I'm not helping out industry leading clients in the healthcare space. 
+				</p>
+				<p>
+					It certainly doesn't look like much at the moment, but as with all software development, it will grow incrementally. 
+				</p>
+				<p>
+					I hope you'll check back to see what I've got in the works or what new ideas I'm digging into. Until then, feel free to:</p> 
+
+				</p>
+			</div>
+		</section>
+		<ul>
+			<li>
+				<a href="/HenryKean-CV.pdf" target="_blank">
+					<span class="icon">
+						<i class="fa-solid fa-user-tie"></i>
+					</span>
+					<span class="label">Grab a copy of my résumé</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://github.com/hlkean" target="_blank">
+					<span class="icon">
+						<i class="fa-brands fa-github"></i>
+					</span>
+					<span class="label">Check out some personal projects in github - unfortunately, you won't see any professional work as all of my clients own the code I write for them</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/henrykean" target="_blank">
+					<span class="icon">
+						<i class="fa-brands fa-linkedin"></i>
+					</span>
+					<span class="label">Connect on LinkedIn</span>
+				</a>
+			</li>
+			<li>
+				<p>Or reach out with any questions or if you'd like to pull me in to any interesting projects you're working on!</p>
+				<div class="form-container">
+					<ContactForm title="Contact me"/>
+				</div>
+			</li>
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: var(--spacing-100);
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: var(--color-primary);
+		font-size: var(--spacing-125);
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: var(--spacing-400);
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: var(--spacing-100);
+	}
+	ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		padding: 0;
+		gap: var(--spacing-125);
+	}
+	li {
+		list-style-type: none;
+	}
+	a {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		border-radius: var(--spacing-75);
+		background-color: var(--color-primary);
+		border: 2px solid var(--color-secondary);
+		color: var(--color-neutral-primary);
+		padding: var(--spacing-100);
+	}
+	a:hover, a:focus-visible {
+		background-color: var(--color-neutral-primary);
+		border: 2px solid var(--color-primary);
+		color: var(--color-primary);
+	}
+	a:focus-visible {
+		outline-offset: var(--spacing-25);
+	}
+	.icon {
+		font-size: var(--spacing-200);
+	}
+	.label {
+		margin-left: var(--spacing-100);
+	}
+	.form-container {
+		background-color: var(--color-secondary);
+		border: 0 solid var(--color-primary);
+		max-height: 0;
+		max-height: 1000px;
+		border-width: var(--spacing-25);
+		width: 100%;
+		border-radius: var(--spacing-100);
+		overflow: hidden;
+		margin-bottom: var(--spacing-200);
+	}
+
+</style>
