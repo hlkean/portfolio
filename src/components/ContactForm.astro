@@ -74,6 +74,9 @@ const { title } = Astro.props;
 		}).then((response) => {
 			response.json()
 			isLoading = false;
+			if(response.status === 200) {
+				submitSuccess();
+			}
 		}).catch((error) => {
 			isLoading = false;
 			throw(error);
@@ -103,11 +106,7 @@ const { title } = Astro.props;
 			const name = e.target?.name?.value;
 			const email = e.target?.email?.value;
 			const message = e.target?.message.value;
-			const response = sendEmail({name, email, message});
-			console.log("response", response);
-			if(response.status === 200) {
-				submitSuccess();
-			}
+			sendEmail({name, email, message});
 		} catch (error) {
 			submitFailure();
 		};
