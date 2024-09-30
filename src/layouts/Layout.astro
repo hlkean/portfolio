@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/variables.css';
 
 interface Props {
@@ -22,7 +23,20 @@ const navItems = [{
 {
 	href: '/contact',
 	text: 'Contact'
-}]
+}];
+
+const footerItems = [{
+	href: 'https://github.com/hlkean',
+	icon: "fa-brands fa-github",
+	text: 'Github',
+	isExternal: true
+},
+{
+	href: 'https://www.linkedin.com/in/henrykean',
+	icon: "fa-brands fa-linkedin",
+	text: 'LinkedIn',
+	isExternal: true
+}];
 ---
 
 <!doctype html>
@@ -34,10 +48,14 @@ const navItems = [{
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link href="/fonts/fontawesome/css/fontawesome.css" rel="stylesheet" />
+		<link href="/fonts/fontawesome/css/brands.css" rel="stylesheet" />
+		<link href="/fonts/fontawesome/css/solid.css" rel="stylesheet" />
 	</head>
 	<body>
 		<Header title={'Henry Kean'} navItems={navItems} />
 		<slot />
+		<Footer copyright={"Copyright Henry Kean 2024"} footerItems={footerItems}/>
 	</body>
 </html>
 <style is:global>
@@ -52,23 +70,32 @@ const navItems = [{
 			white 60%
 		);
 	}
+	@font-face {
+		font-family: 'Righteous';
+		src: url('/fonts/Righteous-Regular.ttf') format('ttf');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: 'Montserrat';
+		src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('ttf');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 	html {
-		font-family: system-ui, sans-serif;
+		font-family: var(--font-body);
 		background: var(--color-neutral-primary);
 		font-size: 16px;
 	}
+	textarea, input {
+		font-family: var(--font-body);
+	}
+	h1, h2, h3, h4, h5, h6, button, label {
+		font-family: var(--font-heading);
+	}
 	body {
 		margin: var(--spacing-0);
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
 	}
 </style>
