@@ -11,18 +11,6 @@ const { title } = Astro.props;
 const navItems = [{
 	href: '/',
 	text: 'Home'
-},
-{
-	href: '/about',
-	text: 'About'
-},
-{
-	href: '/projects',
-	text: 'Projects'
-},
-{
-	href: '/contact',
-	text: 'Contact'
 }];
 
 const footerItems = [{
@@ -55,7 +43,7 @@ const footerItems = [{
 	<body>
 		<Header title={'Henry Kean'} navItems={navItems} />
 		<slot />
-		<Footer copyright={"Copyright Henry Kean 2024"} footerItems={footerItems}/>
+		<Footer copyright={"Henry Kean"} footerItems={footerItems}/>
 	</body>
 </html>
 <style is:global>

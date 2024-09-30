@@ -9,13 +9,11 @@ interface Props {
 	copyright: string;
 }
 
-const {footerItems, copyright } = Astro.props;
-const { url } = Astro.request;
-
-const pathname = new URL(url).pathname;
+const {footerItems, copyright} = Astro.props;
+const year = new Date().getFullYear()
 ---
 <footer>
-	<p>{copyright}</p>
+	<p>&#169; {year} {copyright}</p>
 	<nav>
 		<ul>
 			{footerItems.map(footerItem => {
