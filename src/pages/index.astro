@@ -1,9 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-export const prerender = false;
+import ContactForm from '../components/ContactForm.astro';
 
-const siteKey = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
-const isDev = import.meta.env.MODE === 'development' 
+export const prerender = false;
 ---
 
 <Layout title="Welcome to Astro.">
@@ -18,97 +17,108 @@ const isDev = import.meta.env.MODE === 'development'
 					It certainly doesn't look like much at the moment, but as with all software development, it will grow incrementally. 
 				</p>
 				<p>
-					I hope you'll check back to see what I've got in the works or what new ideas I'm digging into. Until then, feel free to grab a copy of my résumé, check out some personal projects in github (sorry, all of my clients own the code I write for them), and/or reach out with any questions or if you'd like to pull me in to any interesting projects you're working on!
+					I hope you'll check back to see what I've got in the works or what new ideas I'm digging into. Until then, feel free to:</p> 
+
 				</p>
 			</div>
 		</section>
 		<ul>
-			<li>Résumé</li>
-			<li>Github</li>
-			<li>Get in touch</li>
+			<li>
+				<a href="/HenryKean-CV.pdf" target="_blank">
+					<span class="icon">
+						<i class="fa-solid fa-user-tie"></i>
+					</span>
+					<span class="label">Grab a copy of my résumé</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://github.com/hlkean" target="_blank">
+					<span class="icon">
+						<i class="fa-brands fa-github"></i>
+					</span>
+					<span class="label">Check out some personal projects in github - unfortunately, you won't see any professional work as all of my clients own the code I write for them</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/henrykean" target="_blank">
+					<span class="icon">
+						<i class="fa-brands fa-linkedin"></i>
+					</span>
+					<span class="label">Connect on LinkedIn</span>
+				</a>
+			</li>
+			<li>
+				<p>Or reach out with any questions or if you'd like to pull me in to any interesting projects you're working on!</p>
+				<div class="form-container">
+					<ContactForm title="Contact me"/>
+				</div>
+			</li>
 		</ul>
-		<script is:inline src="https://www.google.com/recaptcha/api.js"></script>
-		<form id="contact-form">
-			<input type="email" name="email" placeholder="Your Email" required />
-			<textarea name="message" placeholder="Your Message" required></textarea>
-			<button class="g-recaptcha" data-sitekey={siteKey} data-callback="onSubmit" data-action="submit" type="submit"> 
-				Click me to verify the captcha challenge!
-			</button>
-		</form>
-	
-    <script is:inline>
-		const form = document?.getElementById('contact-form');
-			function onSubmit (token) {
-				console.log('captcha submit')
-				fetch("/api/recaptcha", {
-					method: "POST",
-					body: JSON.stringify({ recaptcha: token })
-				})
-				.then((response) => response.json())
-				.then((gResponse) => {
-					if (gResponse.success) {
-					console.log('success!!', gResponse)
-					// form.dispatchEvent(new Event('submit'));
-					form.requestSubmit();
-					// Captcha verification was a success
-					} else {
-					console.log('womp!', gResponse);
-					// Captcha verification failed
-					}
-				})
-			}
-
-		function sendEmail ({email, message}) {
-			console.log('send email');
-			fetch("/api/send-email", {
-				method: "POST",
-				body: JSON.stringify({
-					email: email,
-					message: message,
-				})
-			}).then((response) => {
-				response.json()
-				console.log('response: ', response);
-			}).catch((error) => {
-				console.log("error sending email: ", error);
-				throw(error);
-			});
-		}
-
-		document?.getElementById('contact-form')?.addEventListener('submit', async (e) => {
-			e.preventDefault();
-			console.log('submitted');
-			try {
-				const email = e.target?.email?.value;
-				const message = e.target?.message.value;
-				sendEmail({email, message});
-			} catch (error) {
-				console.log("error sending email: ", error);
-			};
-		});
-    </script>
 	</main>
 </Layout>
 
 <style>
 	main {
 		margin: auto;
-		padding: 1rem;
+		padding: var(--spacing-100);
 		width: 800px;
 		max-width: calc(100% - 2rem);
 		color: var(--color-primary);
-		font-size: 20px;
+		font-size: var(--spacing-125);
 		line-height: 1.6;
 	}
 	h1 {
-		font-size: 4rem;
+		font-size: var(--spacing-400);
 		font-weight: 700;
 		line-height: 1;
 		text-align: center;
-		margin-bottom: 1em;
+		margin-bottom: var(--spacing-100);
 	}
-	.logo {
-		height: 200px;
-		width: 200px;
+	ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		padding: 0;
+		gap: var(--spacing-125);
 	}
+	li {
+		list-style-type: none;
+	}
+	a {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		border-radius: var(--spacing-75);
+		background-color: var(--color-primary);
+		border: 2px solid var(--color-secondary);
+		color: var(--color-neutral-primary);
+		padding: var(--spacing-100);
+	}
+	a:hover, a:focus-visible {
+		background-color: var(--color-neutral-primary);
+		border: 2px solid var(--color-primary);
+		color: var(--color-primary);
+	}
+	a:focus-visible {
+		outline-offset: var(--spacing-25);
+	}
+	.icon {
+		font-size: var(--spacing-200);
+	}
+	.label {
+		margin-left: var(--spacing-100);
+	}
+	.form-container {
+		background-color: var(--color-secondary);
+		border: 0 solid var(--color-primary);
+		max-height: 0;
+		max-height: 1000px;
+		border-width: var(--spacing-25);
+		width: 100%;
+		border-radius: var(--spacing-100);
+		overflow: hidden;
+		margin-bottom: var(--spacing-200);
+	}
+
 </style>

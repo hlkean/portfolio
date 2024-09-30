@@ -28,10 +28,9 @@ const pathname = new URL(url).pathname;
 
 <style>
 	li, a, p {
-		/* color: white; */
 		color: var(--color-neutral-primary);
 		font-weight: 700;
-		font-size: 24px;
+		font-size: var(--spacing-150);
 	}
 	header, ul {
 		display: flex;
@@ -59,7 +58,6 @@ const pathname = new URL(url).pathname;
 	}
 	a.active {
 		text-decoration: underline;
-		/* border-bottom: 3px solid var(--color-accent-tertiary); */
 		border-bottom: 3px solid var(--color-secondary);
 	}
 </style>
