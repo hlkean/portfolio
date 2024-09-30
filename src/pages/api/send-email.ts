@@ -21,7 +21,7 @@ export const POST: APIRoute = async ({ request }) => {
         from: import.meta.env.GMAIL_USER ?? process.env.GMAIL_USER,
         to: import.meta.env.GMAIL_SELF_EMAIL ?? process.env.GMAIL_SELF_EMAIL, // Destination email
         subject: 'New Contact Form Submission',
-        text: `Email: ${data.email}\nMessage: ${data.message}`,
+        text: `Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
     };
 
     // Send the email
