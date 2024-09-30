@@ -42,10 +42,10 @@ const { title } = Astro.props;
 	}
 
 	function onSubmit (token) {
+		toggleFieldsActive(true);
 		// Hide message if it's already showing
 		formMessage.classList.add('hidden')
 		formMessage.innerText = '';
-		toggleFieldsActive(true);
 
 		isLoading = true;
 		console.log('captcha submit')
@@ -55,9 +55,10 @@ const { title } = Astro.props;
 		})
 		.then((response) => response.json())
 		.then((gResponse) => {
+			console.log('gresponse:: ', gresponse);
 			if (gResponse.success) {
 				console.log('captcha worked');
-			form.requestSubmit();
+				form.requestSubmit();
 			} else {
 			isLoading = false;
 			console.log('captcha failed');
