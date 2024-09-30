@@ -48,21 +48,17 @@ const { title } = Astro.props;
 		formMessage.innerText = '';
 
 		isLoading = true;
-		console.log('captcha submit')
 		fetch("/api/recaptcha", {
 			method: "POST",
 			body: JSON.stringify({ recaptcha: token })
 		})
 		.then((response) => response.json())
 		.then((gResponse) => {
-			console.log('gresponse:: ', gresponse);
 			if (gResponse.success) {
-				console.log('captcha worked');
 				form.requestSubmit();
 			} else {
-			isLoading = false;
-			console.log('captcha failed');
-			submitFailure();
+				isLoading = false;
+				submitFailure();
 			}
 		})
 	}
@@ -102,7 +98,6 @@ const { title } = Astro.props;
 
 	form?.addEventListener('submit', async (e) => {
 		e.preventDefault();
-		console.log('form submitted');
 		try {
 			const name = e.target?.name?.value;
 			const email = e.target?.email?.value;
