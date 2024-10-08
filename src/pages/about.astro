@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout title="Henry Kean | About">
+	<main>
+		<h1>About</h1>
+			<div>
+				<img src="/images/henry_kean.jpg" alt="Henry Kean"/>
+				<p>
+					I am a software architect and engineer based in Southern Maine building web and mobile applications. In my role as a consultant I have worked with some of the industry leaders in the healthcare space - such as the Mayo Clinic and Optum - and beyond with clients like USAA, Patrón Tequila, and Liberty Mutual. 
+				</p>
+				<p>
+					My initial professional interests were in psychology and counseling before I shifted into the tech industry. The interpersonal skills and communication tools I learned in the social sciences and working with populations from children to incarcerated adults help me to build relationships and bonds within teams and with my clients, while also delivering high quality products.
+				</p>
+				<p>
+					Outside of work hours I can often be found on the hurling pitch as part of the Portland Gaelic Athletic Association, taking on DIY projects around the house, or taking in some of the incredible, natural sites Maine has to offer. 
+				</p>
+				<p>
+					I'm always looking to take on new, interesting work or making new connections so please <a href="/contact">feel free to reach out</a> if you'd like to learn more about what I do or want to rope me into your next project:
+				</p>
+			</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: var(--spacing-100);
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: var(--color-primary);
+		font-size: var(--spacing-125);
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: var(--spacing-400);
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: var(--spacing-100);
+	}
+	img {
+		width: 50%;
+		height: auto;
+		float: left;
+		margin-right: var(--spacing-100);
+	}
+	
+
+</style>

@@ -18,7 +18,7 @@ const year = new Date().getFullYear()
 		<ul>
 			{footerItems.map(footerItem => {
 				if(footerItem.icon) {
-					return <li><a href={footerItem.href}><i class={footerItem.icon}></i></a></li>
+					return <li><a href={footerItem.href} aria-label={footerItem.text}><i class={footerItem.icon}></i></a></li>
 				} else {
 					return <li><a href={footerItem.href}>{footerItem.text}</a></li>
 				}
