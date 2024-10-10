@@ -1,4 +1,6 @@
 ---
+import Loader from "./Loader.astro";
+
 export const prerender = false;
 
 const siteKey = import.meta.env.CAPTCHA_KEY ?? process.env.CAPTCHA_KEY;
@@ -24,9 +26,12 @@ const { title } = Astro.props;
 		Send message <i class="fa-solid fa-arrow-right"></i>
 	</button>
 </form>
+<div id="loader" class="hidden">
+	<Loader message="Sending message..."/>
+</div>
 	
 <script is:inline>
-	let isLoading = false;
+	const loader = document?.getElementById('loader');
 	const form = document?.getElementById('contact-form');
 	const formMessage = document.querySelector(".form-message");
 	const button = document?.querySelector('.g-recaptcha');
@@ -35,6 +40,8 @@ const { title } = Astro.props;
 	const messageField = document.getElementById('message');
 
 	function toggleFieldsActive(activeState) {
+		loader.classList.toggle('hidden');
+		form.classList.toggle('hidden');
 		nameField.disabled = activeState;
 		emailField.disabled = activeState;
 		messageField.disabled = activeState;

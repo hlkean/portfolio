@@ -56,17 +56,6 @@ const footerItems = [{
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 	@font-face {
 		font-family: 'Righteous';
 		src: url('/fonts/Righteous-Regular.ttf') format('ttf');
@@ -94,5 +83,13 @@ const footerItems = [{
 	}
 	body {
 		margin: var(--spacing-0);
+	}
+	a {
+		color: var(--color-primary);
+		font-weight: bold;
+	}
+	a:hover, a:active {
+		color: var(--color-neutral-primary);
+		background-color: var(--color-primary);
 	}
 </style>
