@@ -39,9 +39,9 @@ const { title } = Astro.props;
 	const emailField = document.getElementById('email');
 	const messageField = document.getElementById('message');
 
-	function toggleFieldsActive(activeState) {
-		loader.classList.toggle('hidden');
-		form.classList.toggle('hidden');
+	function toggleFieldsDisabled(activeState) {
+		activeState ? loader.classList.add('hidden') : loader.classList.remove('hidden');
+		activeState ? form.classList.add('hidden') : form.classList.remove('hidden');
 		nameField.disabled = activeState;
 		emailField.disabled = activeState;
 		messageField.disabled = activeState;
@@ -49,12 +49,10 @@ const { title } = Astro.props;
 	}
 
 	function onSubmit (token) {
-		toggleFieldsActive(true);
+		toggleFieldsDisabled(true);
 		// Hide message if it's already showing
 		formMessage.classList.add('hidden')
 		formMessage.innerText = '';
-
-		isLoading = true;
 		fetch("/api/recaptcha", {
 			method: "POST",
 			body: JSON.stringify({ recaptcha: token })
@@ -64,7 +62,6 @@ const { title } = Astro.props;
 			if (gResponse.success) {
 				form.requestSubmit();
 			} else {
-				isLoading = false;
 				submitFailure();
 			}
 		})
@@ -85,30 +82,28 @@ const { title } = Astro.props;
 				submitSuccess();
 			}
 		}).catch((error) => {
-			isLoading = false;
 			throw(error);
 		});
 	}
 
 	function submitSuccess() {
-		form.classList.add('hidden');
 		formMessage.append("Thanks for reaching out! I'll be in touch as soon as I can.");
 		formMessage.classList.remove('hidden');
 		nameField.value = '';
 		emailField.value = '';
 		messageField.value = '';
-		toggleFieldsActive(false);
+		toggleFieldsDisabled(false);
 	}
 
 	function submitFailure() {
 		formMessage.append("Oh boy, looks like something went wrong. Please try again later.");
 		formMessage.classList.remove('hidden');
-		toggleFieldsActive(false);
+		toggleFieldsDisabled(false);
 	}
 
 	form?.addEventListener('submit', async (e) => {
 		e.preventDefault();
-		toggleFieldsActive(true);
+		toggleFieldsDisabled(true);
 		try {
 			const name = e.target?.name?.value;
 			const email = e.target?.email?.value;
