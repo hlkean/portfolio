@@ -43,6 +43,23 @@ import Layout from '../layouts/Layout.astro';
 		float: left;
 		margin-right: var(--spacing-100);
 	}
+	@media screen and (max-width: 767px) {
+		main {
+			text-align: center;
+		}
+		p {
+			text-align: left;
+		}
+		img {
+			float: none;
+			width: 75%;
+		}
+	}
+	@media screen and (max-width: 480px) {
+		img {
+			width: 100%;
+		}
+	}
 	
 
 </style>
