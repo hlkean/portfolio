@@ -10,7 +10,8 @@ interface Props {
 }
 
 const {navItems, title, logo } = Astro.props;
-const { url } = Astro.request;
+const pathname = Astro.url.pathname;
+
 let headerClass;
 if (title) {
 	headerClass = "title-header"
@@ -18,8 +19,6 @@ if (title) {
 if (logo) {
 	headerClass = "logo-header"
 }
-
-const pathname = new URL(url).pathname;
 ---
 <header id="header" class={headerClass}>
 	{logo && <a id="logo" href="/"><img src={logo} /></a>}
