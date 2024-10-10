@@ -11,7 +11,16 @@ const { title } = Astro.props;
 const navItems = [{
 	href: '/',
 	text: 'Home'
-}];
+},
+{
+		href: '/about',
+		text: 'About'
+},
+{
+		href: '/contact',
+		text: 'Contact'
+}
+];
 
 const footerItems = [{
 	href: 'https://github.com/hlkean',
@@ -30,6 +39,15 @@ const footerItems = [{
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-FS5E08M5H6"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-FS5E08M5H6');
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
@@ -47,17 +65,6 @@ const footerItems = [{
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 	@font-face {
 		font-family: 'Righteous';
 		src: url('/fonts/Righteous-Regular.ttf') format('ttf');
@@ -85,5 +92,13 @@ const footerItems = [{
 	}
 	body {
 		margin: var(--spacing-0);
+	}
+	a {
+		color: var(--color-primary);
+		font-weight: bold;
+	}
+	a:hover, a:active {
+		color: var(--color-neutral-primary);
+		background-color: var(--color-primary);
 	}
 </style>
