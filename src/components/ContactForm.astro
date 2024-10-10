@@ -178,4 +178,13 @@ const { title } = Astro.props;
 	.form-message {
 		text-align: center;
 	}
+	@media screen and (max-width: 767px) {
+		.flex-container {
+			flex-wrap: wrap;
+			gap: 0;
+		}
+		.flex-item {
+			flex-basis: 100%;
+		}
+	}
 </style>
