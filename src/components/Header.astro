@@ -19,7 +19,8 @@ if (logo) {
 	headerClass = "logo-header"
 }
 
-const pathname = Astro.url.pathname;;
+const pathname = Astro.url.pathname;
+console.log('pathName::', pathname);
 ---
 <header id="header" class={headerClass}>
 	{logo && <a id="logo" href="/"><img src={logo} /></a>}
