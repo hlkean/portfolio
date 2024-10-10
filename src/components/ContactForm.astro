@@ -40,8 +40,6 @@ const { title } = Astro.props;
 	const messageField = document.getElementById('message');
 
 	function toggleFieldsDisabled(activeState) {
-		activeState ? loader.classList.add('hidden') : loader.classList.remove('hidden');
-		activeState ? form.classList.add('hidden') : form.classList.remove('hidden');
 		nameField.disabled = activeState;
 		emailField.disabled = activeState;
 		messageField.disabled = activeState;
@@ -50,6 +48,8 @@ const { title } = Astro.props;
 
 	function onSubmit (token) {
 		toggleFieldsDisabled(true);
+		loader.classList.toggle('hidden');
+		form.classList.toggle('hidden');
 		// Hide message if it's already showing
 		formMessage.classList.add('hidden')
 		formMessage.innerText = '';
@@ -77,7 +77,6 @@ const { title } = Astro.props;
 			})
 		}).then((response) => {
 			response.json()
-			isLoading = false;
 			if(response.status === 200) {
 				submitSuccess();
 			}
@@ -93,12 +92,15 @@ const { title } = Astro.props;
 		emailField.value = '';
 		messageField.value = '';
 		toggleFieldsDisabled(false);
+		loader.classList.toggle('hidden');
 	}
 
 	function submitFailure() {
 		formMessage.append("Oh boy, looks like something went wrong. Please try again later.");
 		formMessage.classList.remove('hidden');
 		toggleFieldsDisabled(false);
+		loader.classList.toggle('hidden');
+		form.classList.toggle('hidden');
 	}
 
 	form?.addEventListener('submit', async (e) => {
