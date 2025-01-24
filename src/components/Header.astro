@@ -11,16 +11,8 @@ interface Props {
 
 const {navItems, title, logo } = Astro.props;
 const pathname = Astro.url.pathname;
-
-let headerClass;
-if (title) {
-	headerClass = "title-header"
-}
-if (logo) {
-	headerClass = "logo-header"
-}
 ---
-<header id="header" class={headerClass}>
+<header id="header">
 	{logo && <a id="logo" href="/"><img src={logo} /></a>}
 	{title && <a id="title" href="/">{title}</a>}
 	<button id="nav-toggle" aria-expanded="false">
@@ -54,6 +46,9 @@ if (logo) {
 				header?.classList.remove('shift');
 			}
 		};
+	} else {
+		logo?.classList.add('show');
+		header?.classList.add('shift');
 	}
 
 	navToggle?.addEventListener('click', () => {
@@ -66,7 +61,7 @@ if (logo) {
 </script>
 
 <style>
-	li, a {
+	li, a, p {
 		color: var(--color-neutral-primary);
 		font-weight: 700;
 		font-size: var(--spacing-150);
@@ -83,9 +78,6 @@ if (logo) {
 		position: sticky;
 		top: 0;
 		padding: 0 var(--spacing-300);
-		justify-content: center;
-	}
-	header.title-header {
 		justify-content: space-between;
 	}
 	ul {
@@ -159,8 +151,6 @@ if (logo) {
 	@media screen and (max-width: 767px) {
 		header {
 			height: var(--spacing-350);
-		}
-		header.title-header {
 			justify-content: center;
 		}
 
